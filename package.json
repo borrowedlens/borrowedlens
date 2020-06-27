@@ -10,11 +10,11 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "SET NODE_ENV=development&&node server.js",
+    "start": "SET NODE_ENV=development&&node ./dist/server.js",
     "build-dev": "SET NODE_ENV=development&&webpack",
-    "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node server.js",
+    "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/server.js",
     "build": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js",
-    "quick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node server.js",
+    "quick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./dist/server.js",
     "react-start": "react-scripts start"
   },
   "eslintConfig": {

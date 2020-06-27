@@ -6,10 +6,11 @@ import html from './client/html';
 import { ServerStyleSheet } from 'styled-components';
 
 const port = 3000;
-const server = express();
+const app = express();
 
+app.use(express.static("dist"));
 
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
     const sheet = new ServerStyleSheet();
     const body = renderToString(sheet.collectStyles(<App />));
     const styles = sheet.getStyleTags();
@@ -23,6 +24,6 @@ server.get('/', (req, res) => {
     );
 });
 
-server.listen(port);
+app.listen(port);
 
 console.log(`serving at port ${port}`);
