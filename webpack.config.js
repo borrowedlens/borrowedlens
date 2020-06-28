@@ -2,10 +2,10 @@ const webpack = require('webpack');
 
 const browserConfig = {
     mode: 'development',
-    entry: './src/client.js',
+    entry: './src/client/index.js',
     output: {
         path: __dirname,
-        filename: './dist/bundle.js',
+        filename: './dist/src/bundle.js',
     },
     devtool: 'cheap-module-source-map',
     module: {
@@ -22,11 +22,11 @@ const browserConfig = {
 
 const serverConfig = {
     mode: 'development',
-    entry: './src/server.js',
+    entry: './src/index.js',
     target: 'node',
     output: {
         path: __dirname,
-        filename: './dist/server.js',
+        filename: './dist/index.js',
         libraryTarget: 'commonjs2',
     },
     devtool: 'cheap-module-source-map',

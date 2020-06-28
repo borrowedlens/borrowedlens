@@ -1,16 +1,36 @@
+import * as functions from 'firebase-functions';
+import path from 'path';
+import express from 'express';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { renderToString } from 'react-dom/server';
 import App from './client/app';
-import * as serviceWorker from './serviceWorker';
+import html from './client/html';
+import { ServerStyleSheet } from 'styled-components';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const port = 3000;
+const app = express();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const ENVIRONMENT = process.env.NODE_ENV;
+
+const staticServe = ENVIRONMENT === 'production' ? express.static("src") : express.static("dist/src"); 
+
+app.use(staticServe);
+
+app.get('**', (req, res) => {
+    const sheet = new ServerStyleSheet();
+    const body = renderToString(sheet.collectStyles(<App />));
+    const styles = sheet.getStyleTags();
+    const title = 'react ssr';
+    res.send(
+        html({
+            body,
+            styles,
+            title,
+        })
+    );
+});
+
+//for firebase functions - hosting
+export let ssrapp = functions.https.onRequest(app);
+
+// app.listen(port, () => console.log('server is listening'));

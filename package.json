@@ -10,11 +10,11 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "SET NODE_ENV=development&&node ./dist/server.js",
+    "start": "SET NODE_ENV=development&&node ./dist/index.js",
     "build-dev": "SET NODE_ENV=development&&webpack",
-    "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/server.js",
+    "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/index.js",
     "build": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js",
-    "quick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./dist/server.js",
+    "quick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./dist/index.js",
     "react-start": "react-scripts start"
   },
   "eslintConfig": {
@@ -33,9 +33,13 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
-    "babel-preset-react-app": "^9.1.2",
+    "firebase": "^7.15.5",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.7.0",
+    "firebase-tools": "^8.4.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   }

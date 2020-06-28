@@ -2,10 +2,10 @@ const webpack = require('webpack');
 
 const browserConfig = {
     mode: 'production',
-    entry: './src/client.js',
+    entry: './src/client/index.js',
     output: {
         path: __dirname,
-        filename: './dist/bundle.js',
+        filename: './functions/src/bundle.js',
     },
     module: {
         rules: [
@@ -21,11 +21,11 @@ const browserConfig = {
 
 const serverConfig = {
     mode: 'production',
-    entry: './src/server.js',
+    entry: './src/index.js',
     target: 'node',
     output: {
         path: __dirname,
-        filename: './dist/server.js',
+        filename: './functions/index.js',
         libraryTarget: 'commonjs2',
     },
     module: {
