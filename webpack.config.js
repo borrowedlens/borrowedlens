@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 const browserConfig = {
     mode: 'development',
-    entry: './src/client/index.js',
+    entry: './src/index.js',
     output: {
         path: __dirname,
         filename: './dist/src/bundle.js',
@@ -22,7 +22,7 @@ const browserConfig = {
 
 const serverConfig = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: './server.js',
     target: 'node',
     output: {
         path: __dirname,

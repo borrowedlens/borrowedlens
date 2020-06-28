@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 const browserConfig = {
     mode: 'production',
-    entry: './src/client/index.js',
+    entry: './src/index.js',
     output: {
         path: __dirname,
         filename: './functions/src/bundle.js',
@@ -21,7 +21,7 @@ const browserConfig = {
 
 const serverConfig = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: './server.js',
     target: 'node',
     output: {
         path: __dirname,
