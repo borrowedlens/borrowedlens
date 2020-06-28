@@ -1,11 +1,9 @@
-const webpack = require('webpack');
-
 const browserConfig = {
     mode: 'production',
     entry: './src/index.js',
     output: {
         path: __dirname,
-        filename: './functions/src/bundle.js',
+        filename: './build/src/bundle.js',
     },
     module: {
         rules: [
@@ -25,7 +23,7 @@ const serverConfig = {
     target: 'node',
     output: {
         path: __dirname,
-        filename: './functions/index.js',
+        filename: './build/index.js',
         libraryTarget: 'commonjs2',
     },
     module: {

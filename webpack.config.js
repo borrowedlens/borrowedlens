@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 const browserConfig = {
     mode: 'development',
     entry: './src/index.js',

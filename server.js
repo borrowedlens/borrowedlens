@@ -11,7 +11,7 @@ const app = express();
 
 const ENVIRONMENT = process.env.NODE_ENV;
 
-const staticServe = ENVIRONMENT === 'production' ? express.static("src") : express.static("dist/src"); 
+const staticServe = ENVIRONMENT === 'production' ? express.static("build/src") : express.static("dist/src"); 
 
 app.use(staticServe);
 
