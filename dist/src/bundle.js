@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -31881,10 +31881,10 @@ if ( true && typeof window !== 'undefined') {
 
 /***/ }),
 
-/***/ "./src/client/app.js":
-/*!***************************!*\
-  !*** ./src/client/app.js ***!
-  \***************************/
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -31893,8 +31893,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global */ "./src/client/global.js");
-/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ "./src/client/theme.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ "./src/theme.js");
 
 
 
@@ -31922,10 +31922,10 @@ function App() {
 
 /***/ }),
 
-/***/ "./src/client/global.js":
-/*!******************************!*\
-  !*** ./src/client/global.js ***!
-  \******************************/
+/***/ "./src/global.js":
+/*!***********************!*\
+  !*** ./src/global.js ***!
+  \***********************/
 /*! exports provided: GlobalStyle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -31975,10 +31975,10 @@ button:focus {
 
 /***/ }),
 
-/***/ "./src/client/index.js":
-/*!*****************************!*\
-  !*** ./src/client/index.js ***!
-  \*****************************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -31988,7 +31988,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ "./src/client/app.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ "./src/app.js");
 
 
 
@@ -31996,10 +31996,10 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["hydrate"])( /*#__PURE__*/react__W
 
 /***/ }),
 
-/***/ "./src/client/theme.js":
-/*!*****************************!*\
-  !*** ./src/client/theme.js ***!
-  \*****************************/
+/***/ "./src/theme.js":
+/*!**********************!*\
+  !*** ./src/theme.js ***!
+  \**********************/
 /*! exports provided: lightTheme, darkTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
