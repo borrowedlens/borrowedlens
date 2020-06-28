@@ -1,5 +1,4 @@
 import * as functions from 'firebase-functions';
-import path from 'path';
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -31,6 +30,6 @@ app.get('**', (req, res) => {
 });
 
 //for firebase functions - hosting
-export let ssrapp = functions.https.onRequest(app);
+// export let ssrapp = functions.https.onRequest(app);
 
-// app.listen(port, () => console.log('server is listening'));
+app.listen(port, () => console.log('server is listening'));
