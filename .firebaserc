@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "ssrborrowedlens",
+    "ssr": "ssrborrowedlens"
+  }
+}

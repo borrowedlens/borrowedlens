@@ -5,7 +5,7 @@ const browserConfig = {
     entry: './src/client.js',
     output: {
         path: __dirname,
-        filename: './dist/bundle.js',
+        filename: './functions/src/client.js',
     },
     devtool: 'cheap-module-source-map',
     module: {
@@ -14,7 +14,7 @@ const browserConfig = {
                 test: /js$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
-                query: { presets: ['react-app'] },
+                query: { presets: ['@babel/preset-react'] },
             },
         ],
     },
@@ -22,11 +22,11 @@ const browserConfig = {
 
 const serverConfig = {
     mode: 'development',
-    entry: './src/server.js',
+    entry: './index.js',
     target: 'node',
     output: {
         path: __dirname,
-        filename: './dist/server.js',
+        filename: './functions/index.js',
         libraryTarget: 'commonjs2',
     },
     devtool: 'cheap-module-source-map',
@@ -36,7 +36,7 @@ const serverConfig = {
                 test: /js$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
-                query: { presets: ['react-app'] },
+                query: { presets: ['@babel/preset-react'] },
             },
         ],
     },

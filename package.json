@@ -2,12 +2,25 @@
   "name": "borrowedlens-space",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "firebase": "^7.15.5",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.7.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "SET NODE_ENV=development&&node ./dist/server.js",
@@ -15,7 +28,9 @@
     "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/server.js",
     "build": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js",
     "quick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./dist/server.js",
-    "react-start": "react-scripts start"
+    "react-start": "react-scripts start",
+    "babel": "babel src -d functions/src && babel index.js -d functions",
+    "webpack": "webpack --config webpack.config.trial.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,12 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.1.0",
-    "babel-preset-react-app": "^9.1.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
   }
 }
