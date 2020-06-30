@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+
 import { GlobalStyle } from './global';
 import { lightTheme, darkTheme } from './theme';
+import sun from './sun.png';
+import moon from './moon.png';
 
 function App() {
     const [theme, setTheme] = useState('light');
@@ -12,9 +16,45 @@ function App() {
             setTheme('light');
         }
     };
+    const Header = styled.header`
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        padding: 10px 50px;
+    `;
+    const ToggleDiv = styled.div`
+        height: 30px;
+        width: 50px;
+        border-radius: 30px;
+        border: 2px solid darkgreen;
+        position: relative;
+    `;
+    const ImageSun = styled.img`
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        top: 3px;
+    `;
+    const ImageMoon = styled.img`
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        right: 3px;
+        top: 3px;
+    `;
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyle />
+            <Header>
+                <h1>my personal site</h1>
+                <ToggleDiv>
+                    <ImageSun src={sun} alt='' />
+                    <ImageMoon src={moon} alt='' />
+                </ToggleDiv>
+            </Header>
             <button onClick={toggleTheme}>toggle theme</button>
             <h1>it's a {theme} theme</h1>
         </ThemeProvider>

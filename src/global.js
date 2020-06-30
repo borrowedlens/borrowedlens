@@ -18,6 +18,10 @@ body {
     color: ${({ theme }) => theme.text};
     transition: all 0.25s linear;
 }
+#app {
+    height: 100%;
+    width: 100%;
+}
 button {
     padding: 10px;
     color: darkgreen;
