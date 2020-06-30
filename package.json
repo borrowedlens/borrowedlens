@@ -23,13 +23,13 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start-dev": "SET NODE_ENV=development&&node ./dist/index.js",
-    "build-dev": "SET NODE_ENV=development&&webpack",
-    "quick-dev": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/index.js",
-    "build-prod": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js",
-    "quick-prod": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./build/index.js",
-    "react-start": "react-scripts start",
-    "react-build": "react-scripts build"
+    "dstart": "SET NODE_ENV=development&&node ./dist/index.js",
+    "dbuild": "SET NODE_ENV=development&&webpack",
+    "dquick": "SET NODE_ENV=development&&webpack&&SET NODE_ENV=development&&node ./dist/index.js",
+    "pbuild": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js",
+    "pquick": "SET NODE_ENV=production&&webpack --config webpack.config.prod.js&&SET NODE_ENV=production&&node ./build/index.js",
+    "rstart": "react-scripts start",
+    "rbuild": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
