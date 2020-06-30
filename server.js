@@ -12,7 +12,7 @@ import { ServerStyleSheet } from 'styled-components';
 // const html = require('./src/html');
 // const {ServerStyleSheet} = require('styled-components');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 const ENVIRONMENT = process.env.NODE_ENV;
