@@ -2,23 +2,31 @@
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dstart`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build-dev`
+### `npm run dbuild`
 
 Builds the app for development to the `dist` folder.<br />
 
-### `npm run quick-dev`
+### `npm run dquick`
 
 Builds the app for development and runs the app in development mode
 
-### `npm run build`
+### `npm run pbuild`
 
-Builds the app for production to the `dist` folder.<br />
+Builds the app for production to the `build` folder.<br />
 
-### `npm run quick`
+### `npm run pquick`
 
 Builds the app for production and runs the app in production mode
+
+### `npm run rstart`
+
+Builds the app using react scripts for react only render and starts the app in development mode
+
+### `npm run rbuild`
+
+Builds the app for production using react scripts
