@@ -14,8 +14,8 @@ body {
     padding: 0px;
     height: 100vh;
     font-family: 'Courier Prime', monospace;
-    background-color: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.primaryText};
     transition: all 0.25s linear;
 }
 #app {
