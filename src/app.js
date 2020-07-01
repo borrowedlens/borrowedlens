@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components';
 
 import { GlobalStyle } from './global';
 import { lightTheme, darkTheme } from './theme';
-import sun from './sun.png';
-import moon from './moon.png';
+import sun from './assets/sun.png';
+import moon from './assets/moon.png';
 
 const Nav = styled.nav`
     border-bottom: 1px solid #5ba0ff;

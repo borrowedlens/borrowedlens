@@ -9,7 +9,7 @@ const html = ({ body, styles, title }) => `
             />
             <title>${title}</title>
             ${styles}
-            <script src="bundle.js" defer></script>
+            <script src="./src/bundle.js" defer></script>
         </head>
     <body style="margin: 0;">
         <div id="app">${body}</div>

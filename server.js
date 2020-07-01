@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+
 import App from './src/app';
 import html from './src/html';
 import { ServerStyleSheet } from 'styled-components';
@@ -17,7 +18,7 @@ const app = express();
 
 const ENVIRONMENT = process.env.NODE_ENV;
 
-const staticServe = ENVIRONMENT === 'production' ? express.static("build/src") : express.static("dist/src"); 
+const staticServe = ENVIRONMENT === 'production' ? express.static("build") : express.static("dist"); 
 
 app.use(staticServe);
 
