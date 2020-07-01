@@ -31895,6 +31895,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global */ "./src/global.js");
 /* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ "./src/theme.js");
+/* harmony import */ var _sun_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sun.png */ "./src/sun.png");
+/* harmony import */ var _moon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./moon.png */ "./src/moon.png");
+
+
+
 
 
 
@@ -31911,11 +31916,59 @@ function App() {
     }
   };
 
+  const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        padding: 10px 50px;
+    `;
+  const ToggleDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+        height: 27px;
+        width: 50px;
+        position: relative;
+        border-radius: 30px;
+        border: 2px solid ${props => props.theme.primaryColor};
+        background-color: ${props => props.theme.contrastBg};
+    `;
+  const ImageSun = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        top: 3px;
+    `;
+  const ImageMoon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        right: 3px;
+        top: 3px;
+    `;
+  const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+        height: 27px;
+        width: 27px;
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        border-radius: 50%;
+        border: 2px solid ${props => props.theme.primaryColor};
+        background-color: ${props => props.theme.background};
+        transform: ${theme === 'light' ? 'translateX(0)' : 'translateX(20px)'};
+        transition: all 0.5s ease-in-out;
+    `;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeProvider"], {
     theme: theme === 'light' ? _theme__WEBPACK_IMPORTED_MODULE_3__["lightTheme"] : _theme__WEBPACK_IMPORTED_MODULE_3__["darkTheme"]
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "my personal site"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
     onClick: toggleTheme
-  }, "toggle theme"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "it's a ", theme, " theme"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageSun, {
+    src: _sun_png__WEBPACK_IMPORTED_MODULE_4__["default"],
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageMoon, {
+    src: _moon_png__WEBPACK_IMPORTED_MODULE_5__["default"],
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleThumb, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "toggle theme"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "it's a ", theme, " theme"));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -31950,11 +32003,15 @@ body {
     font-family: 'Courier Prime', monospace;
     background-color: ${({
   theme
-}) => theme.body};
+}) => theme.background};
     color: ${({
   theme
-}) => theme.text};
+}) => theme.primaryText};
     transition: all 0.25s linear;
+}
+#app {
+    height: 100%;
+    width: 100%;
 }
 button {
     padding: 10px;
@@ -31996,6 +32053,32 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["hydrate"])( /*#__PURE__*/react__W
 
 /***/ }),
 
+/***/ "./src/moon.png":
+/*!**********************!*\
+  !*** ./src/moon.png ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "5559a1ba98a7f1ea1f66bff4798a04b9.png");
+
+/***/ }),
+
+/***/ "./src/sun.png":
+/*!*********************!*\
+  !*** ./src/sun.png ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "65cb2691f3e7edf401dc827f146167be.png");
+
+/***/ }),
+
 /***/ "./src/theme.js":
 /*!**********************!*\
   !*** ./src/theme.js ***!
@@ -32008,12 +32091,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lightTheme", function() { return lightTheme; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "darkTheme", function() { return darkTheme; });
 const lightTheme = {
-  body: '#E2E2E2',
-  text: '#363537'
+  background: '#E2E2E2',
+  contrastBg: '#363537',
+  primaryText: '#363537',
+  primaryColor: '#006400'
 };
 const darkTheme = {
-  body: '#363537',
-  text: '#FAFAFA'
+  contrastBg: '#E2E2E2',
+  background: '#363537',
+  primaryText: '#FAFAFA',
+  primaryColor: '#006400'
 };
 
 /***/ })
