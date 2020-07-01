@@ -75,8 +75,6 @@ function App() {
                     <ToggleThumb themeState={theme} />
                 </ToggleDiv>
             </Header>
-            <button>toggle theme</button>
-            <h1>it's a {theme} theme</h1>
         </ThemeProvider>
     );
 }
