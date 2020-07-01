@@ -14,6 +14,14 @@ const browserConfig = {
                 loader: 'babel-loader',
                 query: { presets: ['@babel/preset-react'] },
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
         ],
     },
 };
@@ -35,6 +43,14 @@ const serverConfig = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: { presets: ['@babel/preset-react'] },
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             },
         ],
     },

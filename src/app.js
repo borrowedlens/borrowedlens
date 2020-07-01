@@ -55,6 +55,8 @@ function App() {
         border-radius: 50%;
         border: 2px solid ${props => props.theme.primaryColor};
         background-color: ${props => props.theme.background};
+        transform: ${theme === 'light' ? 'translateX(0)' : 'translateX(20px)' };
+        transition: all 0.5s ease-in-out;
     `;
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
