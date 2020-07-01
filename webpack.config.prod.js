@@ -15,11 +15,10 @@ const browserConfig = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
+                loader: 'file-loader',
+                options: {
+                    outputPath: './build/assets',
+                },
             },
         ],
     },
@@ -44,11 +43,11 @@ const serverConfig = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
+                loader: 'file-loader',
+                options: {
+                    outputPath: './build/assets',
+                    publicPath: './assets'
+                },
             },
         ],
     },

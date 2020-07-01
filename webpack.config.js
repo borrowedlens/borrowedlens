@@ -16,11 +16,10 @@ const browserConfig = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
+                loader: 'file-loader',
+                options: {
+                    outputPath: './dist/assets',
+                },
             },
         ],
     },
@@ -46,11 +45,11 @@ const serverConfig = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
+                loader: 'file-loader',
+                options: {
+                    outputPath: './dist/assets',
+                    publicPath: './assets'
+                },
             },
         ],
     },

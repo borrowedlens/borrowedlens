@@ -31895,8 +31895,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global */ "./src/global.js");
 /* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ "./src/theme.js");
-/* harmony import */ var _sun_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sun.png */ "./src/sun.png");
-/* harmony import */ var _moon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./moon.png */ "./src/moon.png");
+/* harmony import */ var _assets_sun_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/sun.png */ "./src/assets/sun.png");
+/* harmony import */ var _assets_moon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/moon.png */ "./src/assets/moon.png");
 
 
 
@@ -31904,6 +31904,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].nav`
+    border-bottom: 1px solid #5ba0ff;
+`;
+const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    padding: 10px 50px;
+`;
+const ToggleDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+    height: 24px;
+    width: 50px;
+    position: relative;
+    border-radius: 30px;
+    border: 2px solid #5ba0ff;
+    background-color: ${props => props.theme.contrastBg};
+    transition: all 0.25s linear;
+`;
+const ImageSun = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    top: 2px;
+`;
+const ImageMoon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 4px;
+    top: 2px;
+`;
+const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border-radius: 50%;
+    background-color: #e2e2e2;
+    transform: translateX(0);
+    transition: transform 0.25s linear;
+    border: 1px solid #5ba0ff;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 2px 2px #5ba0ff;
+    }
+    ${props => props.themeState === 'dark' && styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
+            transform: translateX(25px);
+        `}
+`;
 
 function App() {
   const [theme, setTheme] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('light');
@@ -31916,62 +31969,48 @@ function App() {
     }
   };
 
-  const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100px;
-        width: 100%;
-        padding: 10px 50px;
-    `;
-  const ToggleDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-        height: 27px;
-        width: 50px;
-        position: relative;
-        border-radius: 30px;
-        border: 2px solid ${props => props.theme.primaryColor};
-        background-color: ${props => props.theme.contrastBg};
-    `;
-  const ImageSun = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        left: 3px;
-        top: 3px;
-    `;
-  const ImageMoon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        right: 3px;
-        top: 3px;
-    `;
-  const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-        height: 27px;
-        width: 27px;
-        position: absolute;
-        left: -2px;
-        top: -2px;
-        border-radius: 50%;
-        border: 2px solid ${props => props.theme.primaryColor};
-        background-color: ${props => props.theme.background};
-        transform: ${theme === 'light' ? 'translateX(0)' : 'translateX(20px)'};
-        transition: all 0.5s ease-in-out;
-    `;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeProvider"], {
     theme: theme === 'light' ? _theme__WEBPACK_IMPORTED_MODULE_3__["lightTheme"] : _theme__WEBPACK_IMPORTED_MODULE_3__["darkTheme"]
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "my personal site"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "borrowed lens"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
     onClick: toggleTheme
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageSun, {
-    src: _sun_png__WEBPACK_IMPORTED_MODULE_4__["default"],
+    src: _assets_sun_png__WEBPACK_IMPORTED_MODULE_4__["default"],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageMoon, {
-    src: _moon_png__WEBPACK_IMPORTED_MODULE_5__["default"],
+    src: _assets_moon_png__WEBPACK_IMPORTED_MODULE_5__["default"],
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleThumb, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "toggle theme"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "it's a ", theme, " theme"));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleThumb, {
+    themeState: theme
+  })))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/assets/moon.png":
+/*!*****************************!*\
+  !*** ./src/assets/moon.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "dist/assets/8d19581e638b202aad0398e6349e9784.png");
+
+/***/ }),
+
+/***/ "./src/assets/sun.png":
+/*!****************************!*\
+  !*** ./src/assets/sun.png ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "dist/assets/abe733aa9365ac2df24358ddb52a629c.png");
 
 /***/ }),
 
@@ -32007,26 +32046,11 @@ body {
     color: ${({
   theme
 }) => theme.primaryText};
-    transition: all 0.25s linear;
+    transition: all 0.25s 0.3s linear;
 }
 #app {
     height: 100%;
     width: 100%;
-}
-button {
-    padding: 10px;
-    color: darkgreen;
-    border-radius: 5px;
-    border: 2px solid darkgreen;
-    font-family: 'Courier Prime', monospace;
-    cursor: pointer;
-}
-button:hover {
-    color: #fff;
-    background-color: darkgreen;
-}
-button:focus {
-    outline: none;
 }
 `;
 
@@ -32053,32 +32077,6 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["hydrate"])( /*#__PURE__*/react__W
 
 /***/ }),
 
-/***/ "./src/moon.png":
-/*!**********************!*\
-  !*** ./src/moon.png ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "5559a1ba98a7f1ea1f66bff4798a04b9.png");
-
-/***/ }),
-
-/***/ "./src/sun.png":
-/*!*********************!*\
-  !*** ./src/sun.png ***!
-  \*********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "65cb2691f3e7edf401dc827f146167be.png");
-
-/***/ }),
-
 /***/ "./src/theme.js":
 /*!**********************!*\
   !*** ./src/theme.js ***!
@@ -32094,13 +32092,15 @@ const lightTheme = {
   background: '#E2E2E2',
   contrastBg: '#363537',
   primaryText: '#363537',
-  primaryColor: '#006400'
+  primaryColor: '#0044a2',
+  secondaryColor: '#5ba0ff'
 };
 const darkTheme = {
   contrastBg: '#E2E2E2',
   background: '#363537',
   primaryText: '#FAFAFA',
-  primaryColor: '#006400'
+  primaryColor: '#5ba0ff',
+  secondaryColor: '#0044a2'
 };
 
 /***/ })
