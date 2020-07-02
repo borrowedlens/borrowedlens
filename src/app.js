@@ -6,6 +6,7 @@ import { GlobalStyle } from './global';
 import { lightTheme, darkTheme } from './theme';
 import sun from './assets/sun.png';
 import moon from './assets/moon.png';
+import backgrounds from './images';
 
 const Nav = styled.nav`
     width: 100%;
@@ -91,24 +92,42 @@ const PrimaryText = styled.div`
         `};
 `;
 const ContainerDiv = styled.div`
+    margin-top: 65px;
     height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+`;
+
+const ImageDiv = styled.div`
+    height: 80%;
+    width: 45%;
+    background-image: url(${props => backgrounds[props.imageIndex]});
+    background-repeat: no-repeat;
+    clip-path: circle(${props => props.clip} at center);
+    border: 5px solid ${props => props.theme.contrastBg};
+    transition: all 0.25s linear;
 `;
 
 function App() {
     const [theme, setTheme] = useState('light');
     const [navView, setNavView] = useState(true);
+    const [imageIndex, setImageIndex] = useState(true);
+    const [clipState, setClipState] = useState("0px");
     const [primaryTextView, setTextView] = useState(false);
     useEffect(() => {
+        let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
         setTimeout(() => {
             setTextView(true);
         }, 250);
+        setImageIndex(randomIndex);
         let prevScrollPos = window.scrollY;
         const handleScroll = () => {
             let currentScrollPos = window.scrollY;
+            setClipState(`${currentScrollPos * 2}px`);
             if (currentScrollPos > prevScrollPos + 10) {
                 setNavView(false);
             } else {
@@ -142,6 +161,7 @@ function App() {
                 </Header>
             </Nav>
             <ContainerDiv>
+                <ImageDiv clip={clipState} imageIndex={imageIndex}/>
                 <PrimaryText textView={primaryTextView}>
                     hi, this is Vivek Prasad here
                 </PrimaryText>
