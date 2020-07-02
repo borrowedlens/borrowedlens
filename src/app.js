@@ -14,18 +14,18 @@ const Nav = styled.nav`
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: ${props => props.theme.contrastBgWithOpacity};
+    background-color: ${(props) => props.theme.background};
     ${(props) =>
         props.navView
-        ? css`
+            ? css`
                   transform: translateY(0);
               `
             : css`
                   transform: translateY(-65px);
               `};
-    transition: transform 0.25s linear;
+    border-bottom: 3px solid #5ba0ff;
+    transition: all 0.25s linear;
 `;
-
 const Header = styled.header`
     display: flex;
     justify-content: space-between;
@@ -79,9 +79,7 @@ const ToggleThumb = styled.div`
         `}
 `;
 const PrimaryText = styled.div`
-    background-color: rgb(54, 53, 55, 0.6);
-    opacity: 0.75;
-    color: #e2e2e2;
+    color: ${props => props.theme.primaryText};
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.4s linear;
@@ -93,41 +91,42 @@ const PrimaryText = styled.div`
         `};
 `;
 const ContainerDiv = styled.div`
-    margin-top: 65px;
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     position: relative;
 `;
 
 const ImageDiv = styled.div`
     height: 80%;
-    width: 45%;
-    background-image: url(${props => backgrounds[props.imageIndex]});
+    width: 330px;
+    background-image: url(${(props) => backgrounds[props.imageIndex]});
     background-repeat: no-repeat;
-    clip-path: circle(${props => props.clip} at center);
+    clip-path: circle(${(props) => props.clip} at center);
     position: relative;
     z-index: -1;
     transition: all 0.25s linear;
-    border: 5px solid ${props => props.theme.contrastBg};
+    border: 5px solid ${(props) => props.theme.contrastBg};
 `;
 
 function App() {
     const [theme, setTheme] = useState('light');
     const [navView, setNavView] = useState(true);
     const [imageIndex, setImageIndex] = useState(true);
-    const [clipState, setClipState] = useState("0px");
+    const [clipState, setClipState] = useState('0px');
     const [primaryTextView, setTextView] = useState(false);
     useEffect(() => {
-        let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
-        setImageIndex(randomIndex);
         let prevScrollPos = window.scrollY;
+        let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
+        setTimeout(() => {
+            setTextView(true);
+        }, 250);
+        setImageIndex(randomIndex);
         const handleScroll = () => {
             let currentScrollPos = window.scrollY;
-            setClipState(`${currentScrollPos * 2}px`);
+            setClipState(`${currentScrollPos * 3}px`);
             if (currentScrollPos > prevScrollPos + 10) {
                 setNavView(false);
             } else {
@@ -161,10 +160,11 @@ function App() {
                 </Header>
             </Nav>
             <ContainerDiv>
-                <ImageDiv clip={clipState} imageIndex={imageIndex}/>
-                <PrimaryText textView={primaryTextView}>
-                    hi, this is Vivek Prasad here
+                <PrimaryText textView={primaryTextView}><h1>Hi,</h1>
+                this is vivek here.
+                and this is my <h3>page.</h3>
                 </PrimaryText>
+                <ImageDiv clip={clipState} imageIndex={imageIndex} />
             </ContainerDiv>
             <ContainerDiv />
             <ContainerDiv />

@@ -9,6 +9,10 @@ const html = ({ body, styles, title }) => `
             />
             <title>${title}</title>
             ${styles}
+            <link
+            href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"
+            rel="stylesheet"
+            />
             <script src="./src/bundle.js" defer></script>
         </head>
     <body style="margin: 0;">
