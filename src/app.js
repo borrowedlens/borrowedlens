@@ -16,11 +16,11 @@ const Nav = styled.nav`
     ${(props) =>
         props.navView
             ? css`
-                transform: translateY(0);
-            `
+                  transform: translateY(0);
+              `
             : css`
-                transform: translateY(-65px);
-            `};
+                  transform: translateY(-65px);
+              `};
     border-bottom: 2px solid #5ba0ff;
 `;
 
@@ -80,6 +80,15 @@ const PrimaryText = styled.div`
     background-color: rgb(54, 53, 55, 0.6);
     opacity: 0.75;
     color: #e2e2e2;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.4s linear;
+    ${(props) =>
+        props.textView &&
+        css`
+            opacity: 1;
+            transform: translateY(0);
+        `};
 `;
 const ContainerDiv = styled.div`
     height: 100vh;
@@ -92,16 +101,22 @@ const ContainerDiv = styled.div`
 function App() {
     const [theme, setTheme] = useState('light');
     const [navView, setNavView] = useState(true);
+    const [primaryTextView, setTextView] = useState(false);
     useEffect(() => {
+        setTimeout(() => {
+            setTextView(true);
+        }, 250);
         let prevScrollPos = window.scrollY;
         const handleScroll = () => {
             let currentScrollPos = window.scrollY;
-            if (currentScrollPos > prevScrollPos) {
+            console.log("handleScroll -> currentScrollPos", currentScrollPos)
+            console.log("App -> prevScrollPos", prevScrollPos)
+            if (currentScrollPos > prevScrollPos + 10) {
                 setNavView(false);
             } else {
                 setNavView(true);
             }
-            prevScrollPos = currentScrollPos;
+            prevScrollPos = currentScrollPos - 10;
         };
         document.addEventListener('scroll', handleScroll);
         return () => {
@@ -129,7 +144,9 @@ function App() {
                 </Header>
             </Nav>
             <ContainerDiv>
-                <PrimaryText>hi, this is Vivek Prasad here</PrimaryText>
+                <PrimaryText textView={primaryTextView}>
+                    hi, this is Vivek Prasad here
+                </PrimaryText>
             </ContainerDiv>
             <ContainerDiv />
             <ContainerDiv />
