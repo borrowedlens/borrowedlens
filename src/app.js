@@ -11,18 +11,19 @@ import backgrounds from './images';
 const Nav = styled.nav`
     width: 100%;
     position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    transition: transform 0.25s linear;
+    background-color: ${props => props.theme.contrastBgWithOpacity};
     ${(props) =>
         props.navView
-            ? css`
+        ? css`
                   transform: translateY(0);
               `
             : css`
                   transform: translateY(-65px);
               `};
-    border-bottom: 2px solid #5ba0ff;
+    transition: transform 0.25s linear;
 `;
 
 const Header = styled.header`
@@ -108,8 +109,10 @@ const ImageDiv = styled.div`
     background-image: url(${props => backgrounds[props.imageIndex]});
     background-repeat: no-repeat;
     clip-path: circle(${props => props.clip} at center);
-    border: 5px solid ${props => props.theme.contrastBg};
+    position: relative;
+    z-index: -1;
     transition: all 0.25s linear;
+    border: 5px solid ${props => props.theme.contrastBg};
 `;
 
 function App() {
@@ -120,9 +123,6 @@ function App() {
     const [primaryTextView, setTextView] = useState(false);
     useEffect(() => {
         let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
-        setTimeout(() => {
-            setTextView(true);
-        }, 250);
         setImageIndex(randomIndex);
         let prevScrollPos = window.scrollY;
         const handleScroll = () => {
