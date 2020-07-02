@@ -16,11 +16,11 @@ const Nav = styled.nav`
     ${(props) =>
         props.navView
             ? css`
-                  transform: translateY(0);
-              `
+                transform: translateY(0);
+            `
             : css`
-                  transform: translateY(-65px);
-              `};
+                transform: translateY(-65px);
+            `};
     border-bottom: 2px solid #5ba0ff;
 `;
 
@@ -76,8 +76,17 @@ const ToggleThumb = styled.div`
             transform: translateX(25px);
         `}
 `;
-const SampleDiv = styled.div`
+const PrimaryText = styled.div`
+    background-color: rgb(54, 53, 55, 0.6);
+    opacity: 0.75;
+    color: #e2e2e2;
+`;
+const ContainerDiv = styled.div`
     height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 function App() {
@@ -119,9 +128,11 @@ function App() {
                     </ToggleDiv>
                 </Header>
             </Nav>
-            <SampleDiv />
-            <SampleDiv />
-            <SampleDiv />
+            <ContainerDiv>
+                <PrimaryText>hi, this is Vivek Prasad here</PrimaryText>
+            </ContainerDiv>
+            <ContainerDiv />
+            <ContainerDiv />
         </ThemeProvider>
     );
 }

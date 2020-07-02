@@ -7,9 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0px;
     padding: 0px;
     height: 100vh;
@@ -19,7 +16,9 @@ body {
     transition: all 0.25s 0.3s linear;
 }
 #app {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 `;
