@@ -31897,6 +31897,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ "./src/theme.js");
 /* harmony import */ var _assets_sun_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/sun.png */ "./src/assets/sun.png");
 /* harmony import */ var _assets_moon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/moon.png */ "./src/assets/moon.png");
+/* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images */ "./src/images.js");
+
 
 
 
@@ -31907,15 +31909,17 @@ __webpack_require__.r(__webpack_exports__);
 const Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].nav`
     width: 100%;
     position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    transition: transform 0.25s linear;
+    background-color: ${props => props.theme.background};
     ${props => props.navView ? styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
                   transform: translateY(0);
               ` : styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
                   transform: translateY(-65px);
               `};
-    border-bottom: 2px solid #5ba0ff;
+    border-bottom: 3px solid #5ba0ff;
+    transition: all 0.25s linear;
 `;
 const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
     display: flex;
@@ -31968,9 +31972,7 @@ const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].di
         `}
 `;
 const PrimaryText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-    background-color: rgb(54, 53, 55, 0.6);
-    opacity: 0.75;
-    color: #e2e2e2;
+    color: ${props => props.theme.primaryText};
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.4s linear;
@@ -31983,22 +31985,39 @@ const ContainerDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].d
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    position: relative;
+`;
+const ImageDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+    height: 80%;
+    width: 330px;
+    background-image: url(${props => _images__WEBPACK_IMPORTED_MODULE_6__["default"][props.imageIndex]});
+    background-repeat: no-repeat;
+    clip-path: circle(${props => props.clip} at center);
+    position: relative;
+    z-index: -1;
+    transition: all 0.25s linear;
+    border: 5px solid ${props => props.theme.contrastBg};
 `;
 
 function App() {
   const [theme, setTheme] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('light');
   const [navView, setNavView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const [imageIndex, setImageIndex] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const [clipState, setClipState] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('0px');
   const [primaryTextView, setTextView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    let prevScrollPos = window.scrollY;
+    let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
     setTimeout(() => {
       setTextView(true);
     }, 250);
-    let prevScrollPos = window.scrollY;
+    setImageIndex(randomIndex);
 
     const handleScroll = () => {
       let currentScrollPos = window.scrollY;
+      setClipState(`${currentScrollPos * 3}px`);
 
       if (currentScrollPos > prevScrollPos + 10) {
         setNavView(false);
@@ -32039,10 +32058,91 @@ function App() {
     themeState: theme
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PrimaryText, {
     textView: primaryTextView
-  }, "hi, this is Vivek Prasad here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi,"), "this is vivek here. and this is my ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "page.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageDiv, {
+    clip: clipState,
+    imageIndex: imageIndex
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/assets/images/1.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/1.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/4fd1b0a1e7aed3d723c01af74d266bb5.jpg");
+
+/***/ }),
+
+/***/ "./src/assets/images/2.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/2.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/3d1f755acf11db81d43ab2bffc803495.jpg");
+
+/***/ }),
+
+/***/ "./src/assets/images/3.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/3.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/bb33753d3db828959ad76144698e6fad.jpg");
+
+/***/ }),
+
+/***/ "./src/assets/images/4.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/4.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/ebb15a49c238c06da5521a78b3b3c423.jpg");
+
+/***/ }),
+
+/***/ "./src/assets/images/5.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/5.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/b009399a0462b7e0e891ea538ea48e12.jpg");
+
+/***/ }),
+
+/***/ "./src/assets/images/6.jpg":
+/*!*********************************!*\
+  !*** ./src/assets/images/6.jpg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/3bedf7f075fda32556dccff38de46bbe.jpg");
 
 /***/ }),
 
@@ -32101,7 +32201,7 @@ body {
     color: ${({
   theme
 }) => theme.primaryText};
-    transition: all 0.25s 0.3s linear;
+    transition: all 0.25s linear;
 }
 #app {
     display: flex;
@@ -32110,6 +32210,31 @@ body {
     align-items: center;
 }
 `;
+
+/***/ }),
+
+/***/ "./src/images.js":
+/*!***********************!*\
+  !*** ./src/images.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _assets_images_1_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/images/1.jpg */ "./src/assets/images/1.jpg");
+/* harmony import */ var _assets_images_2_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/images/2.jpg */ "./src/assets/images/2.jpg");
+/* harmony import */ var _assets_images_3_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/images/3.jpg */ "./src/assets/images/3.jpg");
+/* harmony import */ var _assets_images_4_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/images/4.jpg */ "./src/assets/images/4.jpg");
+/* harmony import */ var _assets_images_5_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/images/5.jpg */ "./src/assets/images/5.jpg");
+/* harmony import */ var _assets_images_6_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/images/6.jpg */ "./src/assets/images/6.jpg");
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([_assets_images_1_jpg__WEBPACK_IMPORTED_MODULE_0__["default"], _assets_images_2_jpg__WEBPACK_IMPORTED_MODULE_1__["default"], _assets_images_3_jpg__WEBPACK_IMPORTED_MODULE_2__["default"], _assets_images_4_jpg__WEBPACK_IMPORTED_MODULE_3__["default"], _assets_images_5_jpg__WEBPACK_IMPORTED_MODULE_4__["default"], _assets_images_6_jpg__WEBPACK_IMPORTED_MODULE_5__["default"]]);
 
 /***/ }),
 
@@ -32148,16 +32273,12 @@ __webpack_require__.r(__webpack_exports__);
 const lightTheme = {
   background: '#E2E2E2',
   contrastBg: '#363537',
-  primaryText: '#363537',
-  primaryColor: '#0044a2',
-  secondaryColor: '#5ba0ff'
+  primaryText: '#363537'
 };
 const darkTheme = {
   background: '#363537',
   contrastBg: '#E2E2E2',
-  primaryText: '#FAFAFA',
-  primaryColor: '#5ba0ff',
-  secondaryColor: '#0044a2'
+  primaryText: '#FAFAFA'
 };
 
 /***/ })
