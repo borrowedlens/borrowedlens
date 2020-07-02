@@ -19,6 +19,7 @@ const browserConfig = {
                 loader: 'file-loader',
                 options: {
                     outputPath: './dist/assets',
+                    publicPath: './assets'
                 },
             },
         ],

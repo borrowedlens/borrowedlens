@@ -18,6 +18,7 @@ const browserConfig = {
                 loader: 'file-loader',
                 options: {
                     outputPath: './build/assets',
+                    publicPath: './assets'
                 },
             },
         ],

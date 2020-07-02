@@ -31905,7 +31905,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].nav`
-    border-bottom: 1px solid #5ba0ff;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.25s linear;
+    ${props => props.navView ? styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
+                  transform: translateY(0);
+              ` : styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
+                  transform: translateY(-65px);
+              `};
+    border-bottom: 2px solid #5ba0ff;
 `;
 const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
     display: flex;
@@ -31957,9 +31967,53 @@ const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].di
             transform: translateX(25px);
         `}
 `;
+const PrimaryText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+    background-color: rgb(54, 53, 55, 0.6);
+    opacity: 0.75;
+    color: #e2e2e2;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s linear;
+    ${props => props.textView && styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
+            opacity: 1;
+            transform: translateY(0);
+        `};
+`;
+const ContainerDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 function App() {
   const [theme, setTheme] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('light');
+  const [navView, setNavView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const [primaryTextView, setTextView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    setTimeout(() => {
+      setTextView(true);
+    }, 250);
+    let prevScrollPos = window.scrollY;
+
+    const handleScroll = () => {
+      let currentScrollPos = window.scrollY;
+
+      if (currentScrollPos > prevScrollPos + 10) {
+        setNavView(false);
+      } else {
+        setNavView(true);
+      }
+
+      prevScrollPos = currentScrollPos - 10;
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -31971,7 +32025,9 @@ function App() {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeProvider"], {
     theme: theme === 'light' ? _theme__WEBPACK_IMPORTED_MODULE_3__["lightTheme"] : _theme__WEBPACK_IMPORTED_MODULE_3__["darkTheme"]
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "borrowed lens"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_2__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nav, {
+    navView: navView
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "borrowed lens"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
     onClick: toggleTheme
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageSun, {
     src: _assets_sun_png__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -31981,7 +32037,9 @@ function App() {
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleThumb, {
     themeState: theme
-  })))));
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PrimaryText, {
+    textView: primaryTextView
+  }, "hi, this is Vivek Prasad here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContainerDiv, null));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -31997,7 +32055,7 @@ function App() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "dist/assets/8d19581e638b202aad0398e6349e9784.png");
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/8d19581e638b202aad0398e6349e9784.png");
 
 /***/ }),
 
@@ -32010,7 +32068,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "dist/assets/abe733aa9365ac2df24358ddb52a629c.png");
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/abe733aa9365ac2df24358ddb52a629c.png");
 
 /***/ }),
 
@@ -32033,9 +32091,6 @@ const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobal
     box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0px;
     padding: 0px;
     height: 100vh;
@@ -32049,8 +32104,10 @@ body {
     transition: all 0.25s 0.3s linear;
 }
 #app {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 `;
 
@@ -32096,8 +32153,8 @@ const lightTheme = {
   secondaryColor: '#5ba0ff'
 };
 const darkTheme = {
-  contrastBg: '#E2E2E2',
   background: '#363537',
+  contrastBg: '#E2E2E2',
   primaryText: '#FAFAFA',
   primaryColor: '#5ba0ff',
   secondaryColor: '#0044a2'

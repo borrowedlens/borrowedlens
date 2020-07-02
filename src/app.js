@@ -81,7 +81,7 @@ const PrimaryText = styled.div`
     opacity: 0.75;
     color: #e2e2e2;
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(30px);
     transition: all 0.4s linear;
     ${(props) =>
         props.textView &&
@@ -109,8 +109,6 @@ function App() {
         let prevScrollPos = window.scrollY;
         const handleScroll = () => {
             let currentScrollPos = window.scrollY;
-            console.log("handleScroll -> currentScrollPos", currentScrollPos)
-            console.log("App -> prevScrollPos", prevScrollPos)
             if (currentScrollPos > prevScrollPos + 10) {
                 setNavView(false);
             } else {
