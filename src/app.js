@@ -135,7 +135,7 @@ const BrandIcon = styled(FontAwesomeIcon)`
     font-size: 45px;
     color: ${(props) => props.theme.primaryColor};
     &:hover {
-        color: ${props => props.theme.secondaryColor};
+        color: ${(props) => props.theme.secondaryColor};
     }
 `;
 const BigText = styled.div`
@@ -198,7 +198,7 @@ function App() {
         };
     }, []);
     const toggleTheme = (t) => {
-        console.log('toggleTheme -> t', t);
+        setIconsView(false);
         if (theme === 'light') {
             setTheme('dark');
         } else if (theme === 'dark') {
@@ -236,16 +236,32 @@ function App() {
             <SecondaryText>
                 <IconContainers id='icons'>
                     <IconContainer iconsview={iconsView} delay='0s'>
-                        <BrandIcon icon={faGithubSquare} />
+                        <a
+                            href='https://github.com/borrowedlens'
+                            style={{ cursor: 'default' }}>
+                            <BrandIcon icon={faGithubSquare} />
+                        </a>
                     </IconContainer>
                     <IconContainer iconsview={iconsView} delay='0.3s'>
-                        <BrandIcon icon={faFacebookSquare} />
+                        <a
+                            href='https://www.facebook.com/borrowedlens'
+                            style={{ cursor: 'default' }}>
+                            <BrandIcon icon={faFacebookSquare} />
+                        </a>
                     </IconContainer>
                     <IconContainer iconsview={iconsView} delay='0.6s'>
-                        <BrandIcon icon={faInstagramSquare} />
+                        <a
+                            href='https://www.instagram.com/borrowed.lens/'
+                            style={{ cursor: 'default' }}>
+                            <BrandIcon icon={faInstagramSquare} />
+                        </a>
                     </IconContainer>
                     <IconContainer iconsview={iconsView} delay='0.9s'>
-                        <BrandIcon icon={faTwitterSquare} />
+                        <a
+                            href='https://twitter.com/TVMGooner'
+                            style={{ cursor: 'default' }}>
+                            <BrandIcon icon={faTwitterSquare} />
+                        </a>
                     </IconContainer>
                 </IconContainers>
             </SecondaryText>
