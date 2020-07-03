@@ -46,7 +46,7 @@ const ToggleDiv = styled.div`
     width: 50px;
     position: relative;
     border-radius: 30px;
-    border: 2px solid #5ba0ff;
+    border: 3px solid #5ba0ff;
     background-color: ${(props) => props.theme.contrastBg};
     transition: all 0.25s linear;
 `;
@@ -54,22 +54,22 @@ const ImageSun = styled.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    left: 4px;
-    top: 2px;
+    left: 2px;
+    top: 1px;
 `;
 const ImageMoon = styled.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    right: 4px;
-    top: 2px;
+    right: 2px;
+    top: 1px;
 `;
 const ToggleThumb = styled.div`
     height: 24px;
     width: 24px;
     position: absolute;
-    left: -2px;
-    top: -2px;
+    left: -3px;
+    top: -3px;
     border-radius: 50%;
     background-color: #e2e2e2;
     transform: translateX(0);
@@ -100,6 +100,7 @@ const PrimaryText = styled.div`
 const ContainerDiv = styled.div`
     height: 100vh;
     width: 100%;
+    padding-top: 70px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -113,26 +114,26 @@ const SecondaryText = styled.div`
     align-items: center;
     position: relative;
 `;
-const Icons = styled(FontAwesomeIcon)`
-    height: 45px;
-    width: 45px;
-    font-size: 45px;
-    text-align: center;
-    margin: auto;
-    color: #5ba0ff;
-    &:hover {
-        color: #9fc8ff;
-    }
+const IconContainers = styled.div`
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
 `;
-const Instagram = styled(FontAwesomeIcon)`
+const IconContainer = styled.div`
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.4s ease-in ${(props) => props.delay};
+    ${(props) =>
+        props.iconsview &&
+        css`
+            transform: translateY(0);
+            opacity: 1;
+        `}
+`;
+const BrandIcon = styled(FontAwesomeIcon)`
     height: 45px;
-    width: 45px;
     font-size: 45px;
-    text-align: center;
-    margin: auto;
-    -webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-    background: linear-gradient(to bottom left, #515ecf, #e02974, #fed676);
+    color: #5ba0ff;
     &:hover {
         color: #9fc8ff;
     }
@@ -142,12 +143,16 @@ const BigText = styled.div`
     font-size: ${(props) => props.fsize};
     font-weight: 700;
 `;
-const ImageDiv = styled.div`
+const ImageDiv = styled.div.attrs((props) => ({
+    style: {
+        clipPath: `circle(${props.clip} at center)`,
+    },
+}))`
     height: 80%;
     width: 330px;
     background-image: url(${(props) => backgrounds[props.imageIndex]});
     background-repeat: no-repeat;
-    clip-path: circle(${(props) => props.clip} at center);
+    background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${(props) => props.theme.contrastBg};
 `;
@@ -158,7 +163,7 @@ function App() {
     const [imageIndex, setImageIndex] = useState(true);
     const [clipState, setClipState] = useState('0px');
     const [primaryTextView, setPrimaryTextView] = useState(false);
-    const [secondaryTextView, setSecondaryTextView] = useState(false);
+    const [iconsView, setIconsView] = useState(false);
     useEffect(() => {
         let prevScrollPos = window.scrollY;
         let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
@@ -166,6 +171,7 @@ function App() {
             setPrimaryTextView(true);
         }, 250);
         setImageIndex(randomIndex);
+        let iconContainerRect = document.getElementById('icons');
         const handleScroll = () => {
             let currentScrollPos = window.scrollY;
             setClipState(`${currentScrollPos * 3}px`);
@@ -175,6 +181,13 @@ function App() {
                 setNavView(true);
             }
             prevScrollPos = currentScrollPos - 10;
+            if (
+                iconContainerRect.getBoundingClientRect().bottom <=
+                    (window.innerHeight ||
+                document.documentElement.clientHeight) - 40
+            ) {
+                setIconsView(true);
+            }
         };
         document.addEventListener('scroll', handleScroll);
         return () => {
@@ -205,21 +218,32 @@ function App() {
                 <PrimaryText textView={primaryTextView}>
                     <span>
                         <BigText fsize='32px'>Hi,</BigText> my name is Vivek,
-                        and this is my
-                        <BigText fsize='32px' alignment='inline'>
-                            &nbsp;page
+                        and this is my &nbsp;
+                        <BigText
+                            fsize='32px'
+                            alignment='inline'
+                            style={{ borderBottom: '3px solid #5ba0ff' }}>
+                            page
                         </BigText>
                     </span>
                 </PrimaryText>
                 <ImageDiv clip={clipState} imageIndex={imageIndex} />
             </ContainerDiv>
             <SecondaryText>
-                <div>
-                    <Icons icon={faGithubSquare} />
-                    <Icons icon={faFacebookSquare} />
-                    <Instagram icon={faInstagramSquare} />
-                    <Icons icon={faTwitterSquare} />
-                </div>
+                <IconContainers id='icons'>
+                    <IconContainer iconsview={iconsView} delay='0s'>
+                        <BrandIcon icon={faGithubSquare} />
+                    </IconContainer>
+                    <IconContainer iconsview={iconsView} delay='0.25s'>
+                        <BrandIcon icon={faFacebookSquare} />
+                    </IconContainer>
+                    <IconContainer iconsview={iconsView} delay='0.5s'>
+                        <BrandIcon icon={faInstagramSquare} />
+                    </IconContainer>
+                    <IconContainer iconsview={iconsView} delay='0.75s'>
+                        <BrandIcon icon={faTwitterSquare} />
+                    </IconContainer>
+                </IconContainers>
             </SecondaryText>
         </ThemeProvider>
     );
