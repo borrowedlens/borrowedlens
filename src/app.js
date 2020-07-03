@@ -21,7 +21,7 @@ const Nav = styled.nav`
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.primaryColor};
     ${(props) =>
         props.navView
             ? css`
@@ -30,7 +30,7 @@ const Nav = styled.nav`
             : css`
                   transform: translateY(-65px);
               `};
-    border-bottom: 3px solid #5ba0ff;
+    border-bottom: 3px solid ${(props) => props.theme.primaryColor};
     transition: all 0.25s linear;
 `;
 const Header = styled.header`
@@ -46,7 +46,7 @@ const ToggleDiv = styled.div`
     width: 50px;
     position: relative;
     border-radius: 30px;
-    border: 3px solid #5ba0ff;
+    border: 3px solid ${(props) => props.theme.contrastBg};
     background-color: ${(props) => props.theme.contrastBg};
     transition: all 0.25s linear;
 `;
@@ -74,15 +74,15 @@ const ToggleThumb = styled.div`
     background-color: #e2e2e2;
     transform: translateX(0);
     transition: transform 0.25s linear;
-    border: 1px solid #5ba0ff;
+    border: 1px solid ${(props) => props.theme.primaryColor};
     cursor: pointer;
     &:hover {
-        box-shadow: 0 0 2px 2px #5ba0ff;
+        box-shadow: 0 0 2px 2px ${(props) => props.theme.contrastBg};
     }
     ${(props) =>
         props.themeState === 'dark' &&
         css`
-            transform: translateX(25px);
+            transform: translateX(26px);
         `}
 `;
 const PrimaryText = styled.div`
@@ -133,15 +133,17 @@ const IconContainer = styled.div`
 const BrandIcon = styled(FontAwesomeIcon)`
     height: 45px;
     font-size: 45px;
-    color: #5ba0ff;
+    color: ${(props) => props.theme.primaryColor};
     &:hover {
-        color: #9fc8ff;
+        color: ${props => props.theme.secondaryColor};
     }
 `;
 const BigText = styled.div`
     display: ${(props) => props.alignment};
     font-size: ${(props) => props.fsize};
     font-weight: 700;
+    border-bottom: ${(props) =>
+        props.underline && `3px solid ${props.theme.primaryColor}`};
 `;
 const ImageDiv = styled.div.attrs((props) => ({
     style: {
@@ -166,7 +168,8 @@ function App() {
     const [iconsView, setIconsView] = useState(false);
     useEffect(() => {
         let prevScrollPos = window.scrollY;
-        let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
+        let randomIndex = Math.floor(Math.random() * 3);
+        console.log('App -> randomIndex', randomIndex);
         setTimeout(() => {
             setPrimaryTextView(true);
         }, 250);
@@ -183,8 +186,8 @@ function App() {
             prevScrollPos = currentScrollPos - 10;
             if (
                 iconContainerRect.getBoundingClientRect().bottom <=
-                    (window.innerHeight ||
-                document.documentElement.clientHeight) - 40
+                (window.innerHeight || document.documentElement.clientHeight) -
+                    40
             ) {
                 setIconsView(true);
             }
@@ -194,7 +197,8 @@ function App() {
             document.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    const toggleTheme = () => {
+    const toggleTheme = (t) => {
+        console.log('toggleTheme -> t', t);
         if (theme === 'light') {
             setTheme('dark');
         } else if (theme === 'dark') {
@@ -207,7 +211,7 @@ function App() {
             <Nav navView={navView}>
                 <Header>
                     <h1>borrowed lens</h1>
-                    <ToggleDiv onClick={toggleTheme}>
+                    <ToggleDiv onClick={() => toggleTheme(theme)}>
                         <ImageSun src={sun} alt='' />
                         <ImageMoon src={moon} alt='' />
                         <ToggleThumb themeState={theme} />
@@ -222,7 +226,7 @@ function App() {
                         <BigText
                             fsize='32px'
                             alignment='inline'
-                            style={{ borderBottom: '3px solid #5ba0ff' }}>
+                            underline={true}>
                             page
                         </BigText>
                     </span>
@@ -234,13 +238,13 @@ function App() {
                     <IconContainer iconsview={iconsView} delay='0s'>
                         <BrandIcon icon={faGithubSquare} />
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.25s'>
+                    <IconContainer iconsview={iconsView} delay='0.3s'>
                         <BrandIcon icon={faFacebookSquare} />
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.5s'>
+                    <IconContainer iconsview={iconsView} delay='0.6s'>
                         <BrandIcon icon={faInstagramSquare} />
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.75s'>
+                    <IconContainer iconsview={iconsView} delay='0.9s'>
                         <BrandIcon icon={faTwitterSquare} />
                     </IconContainer>
                 </IconContainers>
