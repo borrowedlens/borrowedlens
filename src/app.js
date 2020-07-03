@@ -7,6 +7,7 @@ import {
     faFacebookSquare,
     faGithubSquare,
     faTwitterSquare,
+    faLinkedin
 } from '@fortawesome/free-brands-svg-icons';
 
 import { GlobalStyle } from './global';
@@ -136,6 +137,7 @@ const BrandIcon = styled(FontAwesomeIcon)`
     color: ${(props) => props.theme.primaryColor};
     &:hover {
         color: ${(props) => props.theme.secondaryColor};
+        transform: scale(1.4);
     }
 `;
 const BigText = styled.div`
@@ -237,26 +239,33 @@ function App() {
                 <IconContainers id='icons'>
                     <IconContainer iconsview={iconsView} delay='0s'>
                         <a
+                            href='https://www.linkedin.com/in/vivek-prasad-12b2b651'
+                            style={{ cursor: 'default' }}>
+                            <BrandIcon icon={faLinkedin} />
+                        </a>
+                    </IconContainer>
+                    <IconContainer iconsview={iconsView} delay='0.3s'>
+                        <a
                             href='https://github.com/borrowedlens'
                             style={{ cursor: 'default' }}>
                             <BrandIcon icon={faGithubSquare} />
                         </a>
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.3s'>
+                    <IconContainer iconsview={iconsView} delay='0.6s'>
                         <a
                             href='https://www.facebook.com/borrowedlens'
                             style={{ cursor: 'default' }}>
                             <BrandIcon icon={faFacebookSquare} />
                         </a>
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.6s'>
+                    <IconContainer iconsview={iconsView} delay='0.9s'>
                         <a
                             href='https://www.instagram.com/borrowed.lens/'
                             style={{ cursor: 'default' }}>
                             <BrandIcon icon={faInstagramSquare} />
                         </a>
                     </IconContainer>
-                    <IconContainer iconsview={iconsView} delay='0.9s'>
+                    <IconContainer iconsview={iconsView} delay='1.2s'>
                         <a
                             href='https://twitter.com/TVMGooner'
                             style={{ cursor: 'default' }}>
