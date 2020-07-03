@@ -18,10 +18,11 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "dstart": "SET NODE_ENV=development&&node ./dist/index.js",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import styled, { css } from 'styled-components';
+import 'font-awesome/css/font-awesome.min.css';
 
 import { GlobalStyle } from './global';
 import { lightTheme, darkTheme } from './theme';
@@ -79,7 +80,7 @@ const ToggleThumb = styled.div`
         `}
 `;
 const PrimaryText = styled.div`
-    color: ${props => props.theme.primaryText};
+    color: ${(props) => props.theme.primaryText};
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.4s linear;
@@ -106,11 +107,22 @@ const SecondaryText = styled.div`
     align-items: center;
     position: relative;
 `;
+const Icons = styled.i`
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    text-align: center;
+    margin: auto;
+    color: #5ba0ff;
+    &:hover{
+        color: #9fc8ff
+    }
+`;
 const BigText = styled.div`
-    display: ${props => props.alignment};
-    font-size: ${props => props.fsize};
+    display: ${(props) => props.alignment};
+    font-size: ${(props) => props.fsize};
     font-weight: 700;
-`
+`;
 const ImageDiv = styled.div`
     height: 80%;
     width: 330px;
@@ -172,16 +184,23 @@ function App() {
             </Nav>
             <ContainerDiv>
                 <PrimaryText textView={primaryTextView}>
-                    <span><BigText fsize="32px">Hi,</BigText> my name is Vivek, and this is my 
-                    <BigText fsize="32px" alignment="inline">
-                    &nbsp;page
-                    </BigText>
+                    <span>
+                        <BigText fsize='32px'>Hi,</BigText> my name is Vivek,
+                        and this is my
+                        <BigText fsize='32px' alignment='inline'>
+                            &nbsp;page
+                        </BigText>
                     </span>
                 </PrimaryText>
                 <ImageDiv clip={clipState} imageIndex={imageIndex} />
             </ContainerDiv>
             <SecondaryText>
-                
+                <div>
+                    <Icons className='fa fa-github-square'></Icons>
+                    <Icons className='fa fa-instagram'></Icons>
+                    <Icons className='fa fa-facebook-square'></Icons>
+                    <Icons className='fa fa-twitter-square'></Icons>
+                </div>
             </SecondaryText>
         </ThemeProvider>
     );
