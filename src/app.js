@@ -98,15 +98,25 @@ const ContainerDiv = styled.div`
     align-items: center;
     position: relative;
 `;
-
+const SecondaryText = styled.div`
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+`;
+const BigText = styled.div`
+    display: ${props => props.alignment};
+    font-size: ${props => props.fsize};
+    font-weight: 700;
+`
 const ImageDiv = styled.div`
     height: 80%;
     width: 330px;
     background-image: url(${(props) => backgrounds[props.imageIndex]});
     background-repeat: no-repeat;
     clip-path: circle(${(props) => props.clip} at center);
-    position: relative;
-    z-index: -1;
     transition: all 0.25s linear;
     border: 5px solid ${(props) => props.theme.contrastBg};
 `;
@@ -116,12 +126,13 @@ function App() {
     const [navView, setNavView] = useState(true);
     const [imageIndex, setImageIndex] = useState(true);
     const [clipState, setClipState] = useState('0px');
-    const [primaryTextView, setTextView] = useState(false);
+    const [primaryTextView, setPrimaryTextView] = useState(false);
+    const [secondaryTextView, setSecondaryTextView] = useState(false);
     useEffect(() => {
         let prevScrollPos = window.scrollY;
         let randomIndex = Math.floor(Math.random() * (6 - 1) + 1);
         setTimeout(() => {
-            setTextView(true);
+            setPrimaryTextView(true);
         }, 250);
         setImageIndex(randomIndex);
         const handleScroll = () => {
@@ -160,14 +171,18 @@ function App() {
                 </Header>
             </Nav>
             <ContainerDiv>
-                <PrimaryText textView={primaryTextView}><h1>Hi,</h1>
-                this is vivek here.
-                and this is my <h3>page.</h3>
+                <PrimaryText textView={primaryTextView}>
+                    <span><BigText fsize="32px">Hi,</BigText> my name is Vivek, and this is my 
+                    <BigText fsize="32px" alignment="inline">
+                    &nbsp;page
+                    </BigText>
+                    </span>
                 </PrimaryText>
                 <ImageDiv clip={clipState} imageIndex={imageIndex} />
             </ContainerDiv>
-            <ContainerDiv />
-            <ContainerDiv />
+            <SecondaryText>
+                
+            </SecondaryText>
         </ThemeProvider>
     );
 }

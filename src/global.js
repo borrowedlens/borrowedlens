@@ -21,4 +21,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: ${({theme}) => theme.contrastBg} 
+}
 `;
