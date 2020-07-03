@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import styled, { css } from 'styled-components';
-import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faInstagramSquare,
+    faFacebookSquare,
+    faGithubSquare,
+    faTwitterSquare,
+} from '@fortawesome/free-brands-svg-icons';
 
 import { GlobalStyle } from './global';
 import { lightTheme, darkTheme } from './theme';
@@ -107,15 +113,28 @@ const SecondaryText = styled.div`
     align-items: center;
     position: relative;
 `;
-const Icons = styled.i`
+const Icons = styled(FontAwesomeIcon)`
     height: 45px;
     width: 45px;
     font-size: 45px;
     text-align: center;
     margin: auto;
     color: #5ba0ff;
-    &:hover{
-        color: #9fc8ff
+    &:hover {
+        color: #9fc8ff;
+    }
+`;
+const Instagram = styled(FontAwesomeIcon)`
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    text-align: center;
+    margin: auto;
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    background: linear-gradient(to bottom left, #515ecf, #e02974, #fed676);
+    &:hover {
+        color: #9fc8ff;
     }
 `;
 const BigText = styled.div`
@@ -196,10 +215,10 @@ function App() {
             </ContainerDiv>
             <SecondaryText>
                 <div>
-                    <Icons className='fa fa-github-square'></Icons>
-                    <Icons className='fa fa-instagram'></Icons>
-                    <Icons className='fa fa-facebook-square'></Icons>
-                    <Icons className='fa fa-twitter-square'></Icons>
+                    <Icons icon={faGithubSquare} />
+                    <Icons icon={faFacebookSquare} />
+                    <Instagram icon={faInstagramSquare} />
+                    <Icons icon={faTwitterSquare} />
                 </div>
             </SecondaryText>
         </ThemeProvider>

@@ -19,9 +19,9 @@ const browserConfig = {
                 loader: 'file-loader',
                 options: {
                     outputPath: './dist/assets',
-                    publicPath: './assets'
+                    publicPath: './assets',
                 },
-            },
+            }
         ],
     },
 };
@@ -49,9 +49,9 @@ const serverConfig = {
                 loader: 'file-loader',
                 options: {
                     outputPath: './dist/assets',
-                    publicPath: './assets'
+                    publicPath: './assets',
                 },
-            },
+            }
         ],
     },
 };
