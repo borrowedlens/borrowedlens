@@ -38878,12 +38878,15 @@ const Header = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header`
     width: 100%;
     padding: 10px 50px;
 `;
+const HomeLink = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].a`
+    text-decoration: none;
+    color: #E2E2E2;
+`;
 const ToggleDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-    height: 24px;
-    width: 50px;
+    height: 20px;
+    width: 45px;
     position: relative;
     border-radius: 30px;
-    border: 3px solid ${props => props.theme.contrastBg};
     background-color: ${props => props.theme.contrastBg};
     transition: all 0.25s linear;
 `;
@@ -38891,22 +38894,22 @@ const ImageSun = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
     position: absolute;
     height: 16px;
     width: 16px;
-    left: 2px;
-    top: 1px;
+    left: 3px;
+    top: 2px;
 `;
 const ImageMoon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
     position: absolute;
     height: 16px;
     width: 16px;
-    right: 2px;
-    top: 1px;
+    right: 3px;
+    top: 2px;
 `;
-const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button`
     height: 24px;
     width: 24px;
     position: absolute;
-    left: -3px;
-    top: -3px;
+    left: -1px;
+    top: -2px;
     border-radius: 50%;
     background-color: #e2e2e2;
     transform: translateX(0);
@@ -38914,6 +38917,10 @@ const ToggleThumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].di
     border: 1px solid ${props => props.theme.primaryColor};
     cursor: pointer;
     &:hover {
+        box-shadow: 0 0 2px 2px ${props => props.theme.contrastBg};
+    }
+    &:focus {
+        outline: none;
         box-shadow: 0 0 2px 2px ${props => props.theme.contrastBg};
     }
     ${props => props.themeState === 'dark' && styled_components__WEBPACK_IMPORTED_MODULE_1__["css"]`
@@ -38967,6 +38974,7 @@ const BrandIcon = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default
     color: ${props => props.theme.primaryColor};
     &:hover {
         color: ${props => props.theme.secondaryColor};
+        transform: scale(1.4);
     }
 `;
 const BigText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
@@ -39030,7 +39038,7 @@ function App() {
   }, []);
 
   const toggleTheme = t => {
-    console.log('toggleTheme -> t', t);
+    setIconsView(false);
 
     if (theme === 'light') {
       setTheme('dark');
@@ -39043,7 +39051,12 @@ function App() {
     theme: theme === 'light' ? _theme__WEBPACK_IMPORTED_MODULE_5__["lightTheme"] : _theme__WEBPACK_IMPORTED_MODULE_5__["darkTheme"]
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_global__WEBPACK_IMPORTED_MODULE_4__["GlobalStyle"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Nav, {
     navView: navView
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "borrowed lens"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HomeLink, {
+    href: "/",
+    style: {
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "borrowed lens")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToggleDiv, {
     onClick: () => toggleTheme(theme)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageSun, {
     src: _assets_sun_png__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -39069,27 +39082,70 @@ function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
     iconsview: iconsView,
     delay: "0s"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/vivek-prasad-12b2b651",
+    style: {
+      cursor: 'default'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BrandIcon, {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithubSquare"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"]
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
     iconsview: iconsView,
     delay: "0.3s"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/borrowedlens",
+    style: {
+      cursor: 'default'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BrandIcon, {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithubSquare"]
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
     iconsview: iconsView,
     delay: "0.6s"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.facebook.com/borrowedlens",
+    style: {
+      cursor: 'default'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BrandIcon, {
-    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagramSquare"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"]
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
     iconsview: iconsView,
     delay: "0.9s"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.instagram.com/borrowed.lens/",
+    style: {
+      cursor: 'default'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BrandIcon, {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagramSquare"]
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconContainer, {
+    iconsview: iconsView,
+    delay: "1.2s"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://twitter.com/TVMGooner",
+    style: {
+      cursor: 'default'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BrandIcon, {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitterSquare"]
-  })))));
+  }))))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/assets/fonts/CourierPrime-Regular.ttf":
+/*!***************************************************!*\
+  !*** ./src/assets/fonts/CourierPrime-Regular.ttf ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("./assets/fonts/68d89efc577d345bf1f4839e1ea38ccd.ttf");
 
 /***/ }),
 
@@ -39169,8 +39225,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalStyle", function() { return GlobalStyle; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _assets_fonts_CourierPrime_Regular_ttf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/fonts/CourierPrime-Regular.ttf */ "./src/assets/fonts/CourierPrime-Regular.ttf");
+
 
 const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
+@font-face {
+    font-family: "Courier Prime";
+    src: url(${_assets_fonts_CourierPrime_Regular_ttf__WEBPACK_IMPORTED_MODULE_1__["default"]}) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 *,
 *:before,
 *:after {
