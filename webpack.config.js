@@ -21,7 +21,15 @@ const browserConfig = {
                     outputPath: './dist/assets',
                     publicPath: './assets',
                 },
-            }
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: './dist/assets/fonts',
+                    publicPath: './assets/fonts',
+                },
+            },
         ],
     },
 };
@@ -51,7 +59,15 @@ const serverConfig = {
                     outputPath: './dist/assets',
                     publicPath: './assets',
                 },
-            }
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: './dist/assets/fonts',
+                    publicPath: './assets/fonts',
+                },
+            },
         ],
     },
 };
