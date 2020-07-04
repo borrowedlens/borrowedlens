@@ -7,7 +7,7 @@ import {
     faFacebookSquare,
     faGithubSquare,
     faTwitterSquare,
-    faLinkedin
+    faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 
 import { GlobalStyle } from './global';
@@ -43,11 +43,10 @@ const Header = styled.header`
     padding: 10px 50px;
 `;
 const ToggleDiv = styled.div`
-    height: 24px;
-    width: 50px;
+    height: 20px;
+    width: 45px;
     position: relative;
     border-radius: 30px;
-    border: 3px solid ${(props) => props.theme.contrastBg};
     background-color: ${(props) => props.theme.contrastBg};
     transition: all 0.25s linear;
 `;
@@ -55,22 +54,22 @@ const ImageSun = styled.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    left: 2px;
-    top: 1px;
+    left: 3px;
+    top: 2px;
 `;
 const ImageMoon = styled.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    right: 2px;
-    top: 1px;
+    right: 3px;
+    top: 2px;
 `;
-const ToggleThumb = styled.div`
+const ToggleThumb = styled.button`
     height: 24px;
     width: 24px;
     position: absolute;
-    left: -3px;
-    top: -3px;
+    left: -1px;
+    top: -2px;
     border-radius: 50%;
     background-color: #e2e2e2;
     transform: translateX(0);
@@ -78,6 +77,10 @@ const ToggleThumb = styled.div`
     border: 1px solid ${(props) => props.theme.primaryColor};
     cursor: pointer;
     &:hover {
+        box-shadow: 0 0 2px 2px ${(props) => props.theme.contrastBg};
+    }
+    &:focus {
+        outline: none;
         box-shadow: 0 0 2px 2px ${(props) => props.theme.contrastBg};
     }
     ${(props) =>
