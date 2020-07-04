@@ -42,6 +42,10 @@ const Header = styled.header`
     width: 100%;
     padding: 10px 50px;
 `;
+const HomeLink = styled.a`
+    text-decoration: none;
+    color: ${props => props.theme.primaryText};
+`;
 const ToggleDiv = styled.div`
     height: 20px;
     width: 45px;
@@ -215,7 +219,9 @@ function App() {
             <GlobalStyle />
             <Nav navView={navView}>
                 <Header>
-                    <h1>borrowed lens</h1>
+                    <HomeLink href='/' style={{ textDecoration: 'none'}}>
+                        <h1>borrowed lens</h1>
+                    </HomeLink>
                     <ToggleDiv onClick={() => toggleTheme(theme)}>
                         <ImageSun src={sun} alt='' />
                         <ImageMoon src={moon} alt='' />
