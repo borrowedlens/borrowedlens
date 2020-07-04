@@ -44,7 +44,7 @@ const Header = styled.header`
 `;
 const HomeLink = styled.a`
     text-decoration: none;
-    color: ${props => props.theme.primaryText};
+    color: #E2E2E2;
 `;
 const ToggleDiv = styled.div`
     height: 20px;

@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
+import CourierPrime from './assets/fonts/CourierPrime-Regular.ttf';
+
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: "Courier Prime";
+    src: url(${CourierPrime}) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 *,
 *:before,
 *:after {
