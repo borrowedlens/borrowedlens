@@ -84,32 +84,34 @@ body {
     height: 65px;
     width: 100%;
     padding: 10px 50px;
-`,M=o.d.div`
-    height: 24px;
-    width: 50px;
+`,M=o.d.a`
+    text-decoration: none;
+    color: ${e=>e.theme.primaryText};
+`,R=o.d.div`
+    height: 20px;
+    width: 45px;
     position: relative;
     border-radius: 30px;
-    border: 3px solid ${e=>e.theme.contrastBg};
     background-color: ${e=>e.theme.contrastBg};
     transition: all 0.25s linear;
-`,R=o.d.img`
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    top: 1px;
 `,j=o.d.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    right: 2px;
-    top: 1px;
-`,F=o.d.div`
+    left: 3px;
+    top: 2px;
+`,F=o.d.img`
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 3px;
+    top: 2px;
+`,L=o.d.button`
     height: 24px;
     width: 24px;
     position: absolute;
-    left: -3px;
-    top: -3px;
+    left: -1px;
+    top: -2px;
     border-radius: 50%;
     background-color: #e2e2e2;
     transform: translateX(0);
@@ -119,10 +121,14 @@ body {
     &:hover {
         box-shadow: 0 0 2px 2px ${e=>e.theme.contrastBg};
     }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 2px 2px ${e=>e.theme.contrastBg};
+    }
     ${e=>"dark"===e.themeState&&o.c`
             transform: translateX(26px);
         `}
-`,L=o.d.div`
+`,D=o.d.div`
     color: ${e=>e.theme.primaryText};
     opacity: 0;
     transform: translateY(30px);
@@ -131,7 +137,7 @@ body {
             opacity: 1;
             transform: translateY(0);
         `};
-`,D=o.d.div`
+`,$=o.d.div`
     height: 100vh;
     width: 100%;
     padding-top: 70px;
@@ -139,18 +145,18 @@ body {
     justify-content: space-around;
     align-items: center;
     position: relative;
-`,$=o.d.div`
+`,U=o.d.div`
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: relative;
-`,U=o.d.div`
+`,V=o.d.div`
     width: 30%;
     display: flex;
     justify-content: space-between;
-`,V=o.d.div`
+`,W=o.d.div`
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.4s ease-in ${e=>e.delay};
@@ -158,7 +164,7 @@ body {
             transform: translateY(0);
             opacity: 1;
         `}
-`,W=Object(o.d)(k)`
+`,H=Object(o.d)(k)`
     height: 45px;
     font-size: 45px;
     color: ${e=>e.theme.primaryColor};
@@ -166,12 +172,12 @@ body {
         color: ${e=>e.theme.secondaryColor};
         transform: scale(1.4);
     }
-`,H=o.d.div`
+`,B=o.d.div`
     display: ${e=>e.alignment};
     font-size: ${e=>e.fsize};
     font-weight: 700;
     border-bottom: ${e=>e.underline&&"3px solid "+e.theme.primaryColor};
-`,B=o.d.div.attrs(e=>({style:{clipPath:`circle(${e.clip} at center)`}}))`
+`,Q=o.d.div.attrs(e=>({style:{clipPath:`circle(${e.clip} at center)`}}))`
     height: 80%;
     width: 330px;
     background-image: url(${e=>z[e.imageIndex]});
@@ -179,4 +185,4 @@ body {
     background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${e=>e.theme.contrastBg};
-`;var Q=function(){const[e,t]=Object(r.useState)("light"),[n,a]=Object(r.useState)(!0),[l,u]=Object(r.useState)(!0),[c,s]=Object(r.useState)("0px"),[f,d]=Object(r.useState)(!1),[p,m]=Object(r.useState)(!1);return Object(r.useEffect)(()=>{let e=window.scrollY,t=Math.floor(3*Math.random());console.log("App -> randomIndex",t),setTimeout(()=>{d(!0)},250),u(t);let n=document.getElementById("icons");const r=()=>{let t=window.scrollY;s(3*t+"px"),a(!(t>e+10)),e=t-10,n.getBoundingClientRect().bottom<=(window.innerHeight||document.documentElement.clientHeight)-40&&m(!0)};return document.addEventListener("scroll",r),()=>{document.removeEventListener("scroll",r)}},[]),i.a.createElement(o.a,{theme:"light"===e?O:N},i.a.createElement(P,null),i.a.createElement(A,{navView:n},i.a.createElement(I,null,i.a.createElement("h1",null,"borrowed lens"),i.a.createElement(M,{onClick:()=>(m(!1),void("light"===e?t("dark"):"dark"===e&&t("light")))},i.a.createElement(R,{src:"./assets/abe733aa9365ac2df24358ddb52a629c.png",alt:""}),i.a.createElement(j,{src:"./assets/8d19581e638b202aad0398e6349e9784.png",alt:""}),i.a.createElement(F,{themeState:e})))),i.a.createElement(D,null,i.a.createElement(L,{textView:f},i.a.createElement("span",null,i.a.createElement(H,{fsize:"32px"},"Hi,")," my name is Vivek, and this is my  ",i.a.createElement(H,{fsize:"32px",alignment:"inline",underline:!0},"page"))),i.a.createElement(B,{clip:c,imageIndex:l})),i.a.createElement($,null,i.a.createElement(U,{id:"icons"},i.a.createElement(V,{iconsview:p,delay:"0s"},i.a.createElement("a",{href:"https://www.linkedin.com/in/vivek-prasad-12b2b651",style:{cursor:"default"}},i.a.createElement(W,{icon:C}))),i.a.createElement(V,{iconsview:p,delay:"0.3s"},i.a.createElement("a",{href:"https://github.com/borrowedlens",style:{cursor:"default"}},i.a.createElement(W,{icon:T}))),i.a.createElement(V,{iconsview:p,delay:"0.6s"},i.a.createElement("a",{href:"https://www.facebook.com/borrowedlens",style:{cursor:"default"}},i.a.createElement(W,{icon:E}))),i.a.createElement(V,{iconsview:p,delay:"0.9s"},i.a.createElement("a",{href:"https://www.instagram.com/borrowed.lens/",style:{cursor:"default"}},i.a.createElement(W,{icon:S}))),i.a.createElement(V,{iconsview:p,delay:"1.2s"},i.a.createElement("a",{href:"https://twitter.com/TVMGooner",style:{cursor:"default"}},i.a.createElement(W,{icon:_}))))))};Object(a.hydrate)(i.a.createElement(Q,null),document.getElementById("app"))}]);
+`;var Y=function(){const[e,t]=Object(r.useState)("light"),[n,a]=Object(r.useState)(!0),[l,u]=Object(r.useState)(!0),[c,s]=Object(r.useState)("0px"),[f,d]=Object(r.useState)(!1),[p,m]=Object(r.useState)(!1);return Object(r.useEffect)(()=>{let e=window.scrollY,t=Math.floor(3*Math.random());console.log("App -> randomIndex",t),setTimeout(()=>{d(!0)},250),u(t);let n=document.getElementById("icons");const r=()=>{let t=window.scrollY;s(3*t+"px"),a(!(t>e+10)),e=t-10,n.getBoundingClientRect().bottom<=(window.innerHeight||document.documentElement.clientHeight)-40&&m(!0)};return document.addEventListener("scroll",r),()=>{document.removeEventListener("scroll",r)}},[]),i.a.createElement(o.a,{theme:"light"===e?O:N},i.a.createElement(P,null),i.a.createElement(A,{navView:n},i.a.createElement(I,null,i.a.createElement(M,{href:"/",style:{textDecoration:"none"}},i.a.createElement("h1",null,"borrowed lens")),i.a.createElement(R,{onClick:()=>(m(!1),void("light"===e?t("dark"):"dark"===e&&t("light")))},i.a.createElement(j,{src:"./assets/abe733aa9365ac2df24358ddb52a629c.png",alt:""}),i.a.createElement(F,{src:"./assets/8d19581e638b202aad0398e6349e9784.png",alt:""}),i.a.createElement(L,{themeState:e})))),i.a.createElement($,null,i.a.createElement(D,{textView:f},i.a.createElement("span",null,i.a.createElement(B,{fsize:"32px"},"Hi,")," my name is Vivek, and this is my  ",i.a.createElement(B,{fsize:"32px",alignment:"inline",underline:!0},"page"))),i.a.createElement(Q,{clip:c,imageIndex:l})),i.a.createElement(U,null,i.a.createElement(V,{id:"icons"},i.a.createElement(W,{iconsview:p,delay:"0s"},i.a.createElement("a",{href:"https://www.linkedin.com/in/vivek-prasad-12b2b651",style:{cursor:"default"}},i.a.createElement(H,{icon:C}))),i.a.createElement(W,{iconsview:p,delay:"0.3s"},i.a.createElement("a",{href:"https://github.com/borrowedlens",style:{cursor:"default"}},i.a.createElement(H,{icon:T}))),i.a.createElement(W,{iconsview:p,delay:"0.6s"},i.a.createElement("a",{href:"https://www.facebook.com/borrowedlens",style:{cursor:"default"}},i.a.createElement(H,{icon:E}))),i.a.createElement(W,{iconsview:p,delay:"0.9s"},i.a.createElement("a",{href:"https://www.instagram.com/borrowed.lens/",style:{cursor:"default"}},i.a.createElement(H,{icon:S}))),i.a.createElement(W,{iconsview:p,delay:"1.2s"},i.a.createElement("a",{href:"https://twitter.com/TVMGooner",style:{cursor:"default"}},i.a.createElement(H,{icon:_}))))))};Object(a.hydrate)(i.a.createElement(Y,null),document.getElementById("app"))}]);

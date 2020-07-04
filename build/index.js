@@ -2580,32 +2580,34 @@ body {
     height: 65px;
     width: 100%;
     padding: 10px 50px;
-`,jr=Fe.div`
-    height: 24px;
-    width: 50px;
+`,jr=Fe.a`
+    text-decoration: none;
+    color: ${e=>e.theme.primaryText};
+`,Nr=Fe.div`
+    height: 20px;
+    width: 45px;
     position: relative;
     border-radius: 30px;
-    border: 3px solid ${e=>e.theme.contrastBg};
     background-color: ${e=>e.theme.contrastBg};
     transition: all 0.25s linear;
-`,Nr=Fe.img`
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    top: 1px;
 `,Pr=Fe.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    right: 2px;
-    top: 1px;
-`,Dr=Fe.div`
+    left: 3px;
+    top: 2px;
+`,Dr=Fe.img`
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 3px;
+    top: 2px;
+`,Lr=Fe.button`
     height: 24px;
     width: 24px;
     position: absolute;
-    left: -3px;
-    top: -3px;
+    left: -1px;
+    top: -2px;
     border-radius: 50%;
     background-color: #e2e2e2;
     transform: translateX(0);
@@ -2615,10 +2617,14 @@ body {
     &:hover {
         box-shadow: 0 0 2px 2px ${e=>e.theme.contrastBg};
     }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 2px 2px ${e=>e.theme.contrastBg};
+    }
     ${e=>"dark"===e.themeState&&he`
             transform: translateX(26px);
         `}
-`,Lr=Fe.div`
+`,Br=Fe.div`
     color: ${e=>e.theme.primaryText};
     opacity: 0;
     transform: translateY(30px);
@@ -2627,7 +2633,7 @@ body {
             opacity: 1;
             transform: translateY(0);
         `};
-`,Br=Fe.div`
+`,Fr=Fe.div`
     height: 100vh;
     width: 100%;
     padding-top: 70px;
@@ -2635,18 +2641,18 @@ body {
     justify-content: space-around;
     align-items: center;
     position: relative;
-`,Fr=Fe.div`
+`,Mr=Fe.div`
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: relative;
-`,Mr=Fe.div`
+`,Ur=Fe.div`
     width: 30%;
     display: flex;
     justify-content: space-between;
-`,Ur=Fe.div`
+`,qr=Fe.div`
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.4s ease-in ${e=>e.delay};
@@ -2654,7 +2660,7 @@ body {
             transform: translateY(0);
             opacity: 1;
         `}
-`,qr=Fe(br)`
+`,Vr=Fe(br)`
     height: 45px;
     font-size: 45px;
     color: ${e=>e.theme.primaryColor};
@@ -2662,12 +2668,12 @@ body {
         color: ${e=>e.theme.secondaryColor};
         transform: scale(1.4);
     }
-`,Vr=Fe.div`
+`,zr=Fe.div`
     display: ${e=>e.alignment};
     font-size: ${e=>e.fsize};
     font-weight: 700;
     border-bottom: ${e=>e.underline&&"3px solid "+e.theme.primaryColor};
-`,zr=Fe.div.attrs(e=>({style:{clipPath:`circle(${e.clip} at center)`}}))`
+`,Hr=Fe.div.attrs(e=>({style:{clipPath:`circle(${e.clip} at center)`}}))`
     height: 80%;
     width: 330px;
     background-image: url(${e=>Ir[e.imageIndex]});
@@ -2675,4 +2681,4 @@ body {
     background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${e=>e.theme.contrastBg};
-`;var Hr=function(){const[e,t]=Object(o.useState)("light"),[r,n]=Object(o.useState)(!0),[i,s]=Object(o.useState)(!0),[c,u]=Object(o.useState)("0px"),[l,p]=Object(o.useState)(!1),[d,h]=Object(o.useState)(!1);return Object(o.useEffect)(()=>{let e=window.scrollY,t=Math.floor(3*Math.random());console.log("App -> randomIndex",t),setTimeout(()=>{p(!0)},250),s(t);let r=document.getElementById("icons");const i=()=>{let t=window.scrollY;u(3*t+"px"),n(!(t>e+10)),e=t-10,r.getBoundingClientRect().bottom<=(window.innerHeight||document.documentElement.clientHeight)-40&&h(!0)};return document.addEventListener("scroll",i),()=>{document.removeEventListener("scroll",i)}},[]),a.a.createElement(Re,{theme:"light"===e?Ar:Tr},a.a.createElement(xr,null),a.a.createElement(Rr,{navView:r},a.a.createElement(Or,null,a.a.createElement("h1",null,"borrowed lens"),a.a.createElement(jr,{onClick:()=>(h(!1),void("light"===e?t("dark"):"dark"===e&&t("light")))},a.a.createElement(Nr,{src:"./assets/abe733aa9365ac2df24358ddb52a629c.png",alt:""}),a.a.createElement(Pr,{src:"./assets/8d19581e638b202aad0398e6349e9784.png",alt:""}),a.a.createElement(Dr,{themeState:e})))),a.a.createElement(Br,null,a.a.createElement(Lr,{textView:l},a.a.createElement("span",null,a.a.createElement(Vr,{fsize:"32px"},"Hi,")," my name is Vivek, and this is my  ",a.a.createElement(Vr,{fsize:"32px",alignment:"inline",underline:!0},"page"))),a.a.createElement(zr,{clip:c,imageIndex:i})),a.a.createElement(Fr,null,a.a.createElement(Mr,{id:"icons"},a.a.createElement(Ur,{iconsview:d,delay:"0s"},a.a.createElement("a",{href:"https://www.linkedin.com/in/vivek-prasad-12b2b651",style:{cursor:"default"}},a.a.createElement(qr,{icon:Cr}))),a.a.createElement(Ur,{iconsview:d,delay:"0.3s"},a.a.createElement("a",{href:"https://github.com/borrowedlens",style:{cursor:"default"}},a.a.createElement(qr,{icon:_r}))),a.a.createElement(Ur,{iconsview:d,delay:"0.6s"},a.a.createElement("a",{href:"https://www.facebook.com/borrowedlens",style:{cursor:"default"}},a.a.createElement(qr,{icon:Er}))),a.a.createElement(Ur,{iconsview:d,delay:"0.9s"},a.a.createElement("a",{href:"https://www.instagram.com/borrowed.lens/",style:{cursor:"default"}},a.a.createElement(qr,{icon:Sr}))),a.a.createElement(Ur,{iconsview:d,delay:"1.2s"},a.a.createElement("a",{href:"https://twitter.com/TVMGooner",style:{cursor:"default"}},a.a.createElement(qr,{icon:kr}))))))};var Gr=({body:e,styles:t,title:r})=>`\n    <!DOCTYPE html>\n    <html lang="en">\n        <head>\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            <meta\n            name="description"\n            content="website created by Vivek Prasad - A React Developer as a profile page that is being server side rendered by using Express.js"\n            />\n            <title>${r}</title>\n            ${t}\n            <link\n            href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"\n            rel="stylesheet"\n            />\n            <script src="./src/bundle.js" defer><\/script>\n        </head>\n    <body style="margin: 0;">\n        <div id="app">${e}</div>\n    </body>\n</html>\n`;const Kr=process.env.PORT||3e3,Wr=i()(),$r=i.a.static("build");Wr.use($r),Wr.get("**",(e,t)=>{const r=new Be,n=Object(s.renderToString)(r.collectStyles(a.a.createElement(Hr,null))),i=r.getStyleTags();t.send(Gr({body:n,styles:i,title:"react ssr"}))}),Wr.listen(Kr,()=>console.log("server is listening"))},function(e,t,r){"use strict";r.r(t),r.d(t,"v1",(function(){return h})),r.d(t,"v3",(function(){return m})),r.d(t,"v4",(function(){return g})),r.d(t,"v5",(function(){return y}));var n=r(5),i=r.n(n);function o(){return i.a.randomBytes(16)}for(var a=[],s=0;s<256;++s)a[s]=(s+256).toString(16).substr(1);var c,u,l=function(e,t){var r=t||0,n=a;return[n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]]].join("")},p=0,d=0;var h=function(e,t,r){var n=t&&r||0,i=t||[],a=(e=e||{}).node||c,s=void 0!==e.clockseq?e.clockseq:u;if(null==a||null==s){var h=e.random||(e.rng||o)();null==a&&(a=c=[1|h[0],h[1],h[2],h[3],h[4],h[5]]),null==s&&(s=u=16383&(h[6]<<8|h[7]))}var f=void 0!==e.msecs?e.msecs:(new Date).getTime(),m=void 0!==e.nsecs?e.nsecs:d+1,g=f-p+(m-d)/1e4;if(g<0&&void 0===e.clockseq&&(s=s+1&16383),(g<0||f>p)&&void 0===e.nsecs&&(m=0),m>=1e4)throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");p=f,d=m,u=s;var y=(1e4*(268435455&(f+=122192928e5))+m)%4294967296;i[n++]=y>>>24&255,i[n++]=y>>>16&255,i[n++]=y>>>8&255,i[n++]=255&y;var v=f/4294967296*1e4&268435455;i[n++]=v>>>8&255,i[n++]=255&v,i[n++]=v>>>24&15|16,i[n++]=v>>>16&255,i[n++]=s>>>8|128,i[n++]=255&s;for(var b=0;b<6;++b)i[n+b]=a[b];return t||l(i)};var f=function(e,t,r){var n=function(e,n,i,o){var a=i&&o||0;if("string"==typeof e&&(e=function(e){e=unescape(encodeURIComponent(e));for(var t=new Array(e.length),r=0;r<e.length;r++)t[r]=e.charCodeAt(r);return t}(e)),"string"==typeof n&&(n=function(e){var t=[];return e.replace(/[a-fA-F0-9]{2}/g,(function(e){t.push(parseInt(e,16))})),t}(n)),!Array.isArray(e))throw TypeError("value must be an array of bytes");if(!Array.isArray(n)||16!==n.length)throw TypeError("namespace must be uuid string or an Array of 16 byte values");var s=r(n.concat(e));if(s[6]=15&s[6]|t,s[8]=63&s[8]|128,i)for(var c=0;c<16;++c)i[a+c]=s[c];return i||l(s)};try{n.name=e}catch(e){}return n.DNS="6ba7b810-9dad-11d1-80b4-00c04fd430c8",n.URL="6ba7b811-9dad-11d1-80b4-00c04fd430c8",n};var m=f("v3",48,(function(e){return Array.isArray(e)?e=Buffer.from(e):"string"==typeof e&&(e=Buffer.from(e,"utf8")),i.a.createHash("md5").update(e).digest()}));var g=function(e,t,r){var n=t&&r||0;"string"==typeof e&&(t="binary"===e?new Array(16):null,e=null);var i=(e=e||{}).random||(e.rng||o)();if(i[6]=15&i[6]|64,i[8]=63&i[8]|128,t)for(var a=0;a<16;++a)t[n+a]=i[a];return t||l(i)};var y=f("v5",80,(function(e){return Array.isArray(e)?e=Buffer.from(e):"string"==typeof e&&(e=Buffer.from(e,"utf8")),i.a.createHash("sha1").update(e).digest()}))}]);
+`;var Gr=function(){const[e,t]=Object(o.useState)("light"),[r,n]=Object(o.useState)(!0),[i,s]=Object(o.useState)(!0),[c,u]=Object(o.useState)("0px"),[l,p]=Object(o.useState)(!1),[d,h]=Object(o.useState)(!1);return Object(o.useEffect)(()=>{let e=window.scrollY,t=Math.floor(3*Math.random());console.log("App -> randomIndex",t),setTimeout(()=>{p(!0)},250),s(t);let r=document.getElementById("icons");const i=()=>{let t=window.scrollY;u(3*t+"px"),n(!(t>e+10)),e=t-10,r.getBoundingClientRect().bottom<=(window.innerHeight||document.documentElement.clientHeight)-40&&h(!0)};return document.addEventListener("scroll",i),()=>{document.removeEventListener("scroll",i)}},[]),a.a.createElement(Re,{theme:"light"===e?Ar:Tr},a.a.createElement(xr,null),a.a.createElement(Rr,{navView:r},a.a.createElement(Or,null,a.a.createElement(jr,{href:"/",style:{textDecoration:"none"}},a.a.createElement("h1",null,"borrowed lens")),a.a.createElement(Nr,{onClick:()=>(h(!1),void("light"===e?t("dark"):"dark"===e&&t("light")))},a.a.createElement(Pr,{src:"./assets/abe733aa9365ac2df24358ddb52a629c.png",alt:""}),a.a.createElement(Dr,{src:"./assets/8d19581e638b202aad0398e6349e9784.png",alt:""}),a.a.createElement(Lr,{themeState:e})))),a.a.createElement(Fr,null,a.a.createElement(Br,{textView:l},a.a.createElement("span",null,a.a.createElement(zr,{fsize:"32px"},"Hi,")," my name is Vivek, and this is my  ",a.a.createElement(zr,{fsize:"32px",alignment:"inline",underline:!0},"page"))),a.a.createElement(Hr,{clip:c,imageIndex:i})),a.a.createElement(Mr,null,a.a.createElement(Ur,{id:"icons"},a.a.createElement(qr,{iconsview:d,delay:"0s"},a.a.createElement("a",{href:"https://www.linkedin.com/in/vivek-prasad-12b2b651",style:{cursor:"default"}},a.a.createElement(Vr,{icon:Cr}))),a.a.createElement(qr,{iconsview:d,delay:"0.3s"},a.a.createElement("a",{href:"https://github.com/borrowedlens",style:{cursor:"default"}},a.a.createElement(Vr,{icon:_r}))),a.a.createElement(qr,{iconsview:d,delay:"0.6s"},a.a.createElement("a",{href:"https://www.facebook.com/borrowedlens",style:{cursor:"default"}},a.a.createElement(Vr,{icon:Er}))),a.a.createElement(qr,{iconsview:d,delay:"0.9s"},a.a.createElement("a",{href:"https://www.instagram.com/borrowed.lens/",style:{cursor:"default"}},a.a.createElement(Vr,{icon:Sr}))),a.a.createElement(qr,{iconsview:d,delay:"1.2s"},a.a.createElement("a",{href:"https://twitter.com/TVMGooner",style:{cursor:"default"}},a.a.createElement(Vr,{icon:kr}))))))};var Kr=({body:e,styles:t,title:r})=>`\n    <!DOCTYPE html>\n    <html lang="en">\n        <head>\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            <meta\n            name="description"\n            content="website created by Vivek Prasad - A React Developer as a profile page that is being server side rendered by using Express.js"\n            />\n            <title>${r}</title>\n            ${t}\n            <link\n            href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"\n            rel="stylesheet"\n            />\n            <script src="./src/bundle.js" defer><\/script>\n        </head>\n    <body style="margin: 0;">\n        <div id="app">${e}</div>\n    </body>\n</html>\n`;const Wr=process.env.PORT||3e3,$r=i()(),Qr=i.a.static("build");$r.use(Qr),$r.get("**",(e,t)=>{const r=new Be,n=Object(s.renderToString)(r.collectStyles(a.a.createElement(Gr,null))),i=r.getStyleTags();t.send(Kr({body:n,styles:i,title:"react ssr"}))}),$r.listen(Wr,()=>console.log("server is listening"))},function(e,t,r){"use strict";r.r(t),r.d(t,"v1",(function(){return h})),r.d(t,"v3",(function(){return m})),r.d(t,"v4",(function(){return g})),r.d(t,"v5",(function(){return y}));var n=r(5),i=r.n(n);function o(){return i.a.randomBytes(16)}for(var a=[],s=0;s<256;++s)a[s]=(s+256).toString(16).substr(1);var c,u,l=function(e,t){var r=t||0,n=a;return[n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],"-",n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]],n[e[r++]]].join("")},p=0,d=0;var h=function(e,t,r){var n=t&&r||0,i=t||[],a=(e=e||{}).node||c,s=void 0!==e.clockseq?e.clockseq:u;if(null==a||null==s){var h=e.random||(e.rng||o)();null==a&&(a=c=[1|h[0],h[1],h[2],h[3],h[4],h[5]]),null==s&&(s=u=16383&(h[6]<<8|h[7]))}var f=void 0!==e.msecs?e.msecs:(new Date).getTime(),m=void 0!==e.nsecs?e.nsecs:d+1,g=f-p+(m-d)/1e4;if(g<0&&void 0===e.clockseq&&(s=s+1&16383),(g<0||f>p)&&void 0===e.nsecs&&(m=0),m>=1e4)throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");p=f,d=m,u=s;var y=(1e4*(268435455&(f+=122192928e5))+m)%4294967296;i[n++]=y>>>24&255,i[n++]=y>>>16&255,i[n++]=y>>>8&255,i[n++]=255&y;var v=f/4294967296*1e4&268435455;i[n++]=v>>>8&255,i[n++]=255&v,i[n++]=v>>>24&15|16,i[n++]=v>>>16&255,i[n++]=s>>>8|128,i[n++]=255&s;for(var b=0;b<6;++b)i[n+b]=a[b];return t||l(i)};var f=function(e,t,r){var n=function(e,n,i,o){var a=i&&o||0;if("string"==typeof e&&(e=function(e){e=unescape(encodeURIComponent(e));for(var t=new Array(e.length),r=0;r<e.length;r++)t[r]=e.charCodeAt(r);return t}(e)),"string"==typeof n&&(n=function(e){var t=[];return e.replace(/[a-fA-F0-9]{2}/g,(function(e){t.push(parseInt(e,16))})),t}(n)),!Array.isArray(e))throw TypeError("value must be an array of bytes");if(!Array.isArray(n)||16!==n.length)throw TypeError("namespace must be uuid string or an Array of 16 byte values");var s=r(n.concat(e));if(s[6]=15&s[6]|t,s[8]=63&s[8]|128,i)for(var c=0;c<16;++c)i[a+c]=s[c];return i||l(s)};try{n.name=e}catch(e){}return n.DNS="6ba7b810-9dad-11d1-80b4-00c04fd430c8",n.URL="6ba7b811-9dad-11d1-80b4-00c04fd430c8",n};var m=f("v3",48,(function(e){return Array.isArray(e)?e=Buffer.from(e):"string"==typeof e&&(e=Buffer.from(e,"utf8")),i.a.createHash("md5").update(e).digest()}));var g=function(e,t,r){var n=t&&r||0;"string"==typeof e&&(t="binary"===e?new Array(16):null,e=null);var i=(e=e||{}).random||(e.rng||o)();if(i[6]=15&i[6]|64,i[8]=63&i[8]|128,t)for(var a=0;a<16;++a)t[n+a]=i[a];return t||l(i)};var y=f("v5",80,(function(e){return Array.isArray(e)?e=Buffer.from(e):"string"==typeof e&&(e=Buffer.from(e,"utf8")),i.a.createHash("sha1").update(e).digest()}))}]);
