@@ -1,7 +1,7 @@
-import * as functions from 'firebase-functions';
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import compression from 'compression';
 
 import App from './src/app';
 import html from './src/html';
@@ -15,6 +15,8 @@ import { ServerStyleSheet } from 'styled-components';
 
 const port = process.env.PORT || 3000;
 const app = express();
+
+app.use(compression());
 
 const ENVIRONMENT = process.env.NODE_ENV;
 

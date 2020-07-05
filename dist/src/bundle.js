@@ -39136,19 +39136,6 @@ function App() {
 
 /***/ }),
 
-/***/ "./src/assets/fonts/CourierPrime-Regular.ttf":
-/*!***************************************************!*\
-  !*** ./src/assets/fonts/CourierPrime-Regular.ttf ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("./assets/fonts/68d89efc577d345bf1f4839e1ea38ccd.ttf");
-
-/***/ }),
-
 /***/ "./src/assets/images/1.jpg":
 /*!*********************************!*\
   !*** ./src/assets/images/1.jpg ***!
@@ -39225,16 +39212,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalStyle", function() { return GlobalStyle; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _assets_fonts_CourierPrime_Regular_ttf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/fonts/CourierPrime-Regular.ttf */ "./src/assets/fonts/CourierPrime-Regular.ttf");
-
 
 const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
-@font-face {
-    font-family: "Courier Prime";
-    src: url(${_assets_fonts_CourierPrime_Regular_ttf__WEBPACK_IMPORTED_MODULE_1__["default"]}) format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
 *,
 *:before,
 *:after {
