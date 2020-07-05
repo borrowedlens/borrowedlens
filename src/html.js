@@ -7,6 +7,10 @@ const html = ({ body, styles, title }) => `
             name="description"
             content="website created by Vivek Prasad - A React Developer as a profile page that is being server side rendered by using Express.js"
             />
+            <link
+            href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"
+            rel="stylesheet"
+            />
             <title>${title}</title>
             ${styles}
             <script src="./src/bundle.js" defer></script>
