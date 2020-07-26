@@ -15,6 +15,7 @@ import { lightTheme, darkTheme } from './theme';
 import sun from './assets/sun.png';
 import moon from './assets/moon.png';
 import backgrounds from './images';
+import BorrowedLens from './borrowedlens';
 
 const Nav = styled.nav`
     width: 100%;
@@ -44,7 +45,7 @@ const Header = styled.header`
 `;
 const HomeLink = styled.a`
     text-decoration: none;
-    color: #E2E2E2;
+    color: #e2e2e2;
 `;
 const ToggleDiv = styled.div`
     height: 20px;
@@ -162,14 +163,13 @@ const ImageDiv = styled.div`
     background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${(props) => props.theme.contrastBg};
-    clip-path: ${props => `circle(${props.clip} at center)`};
+    clip-path: ${(props) => `circle(${props.clip} at center)`};
 `;
 // .attrs((props) => ({
 //     style: {
 //         clipPath: `circle(${props.clip} at center)`,
 //     },
 // }))
-
 
 function App() {
     const [theme, setTheme] = useState('light');
@@ -222,7 +222,7 @@ function App() {
             <GlobalStyle />
             <Nav navView={navView}>
                 <Header>
-                    <HomeLink href='/' style={{ textDecoration: 'none'}}>
+                    <HomeLink href='/' style={{ textDecoration: 'none' }}>
                         <h1>borrowed lens</h1>
                     </HomeLink>
                     <ToggleDiv onClick={() => toggleTheme(theme)}>
@@ -243,6 +243,7 @@ function App() {
                             underline={true}>
                             page
                         </BigText>
+                        <BorrowedLens />
                     </span>
                 </PrimaryText>
                 <ImageDiv clip={clipState} imageIndex={imageIndex} />
