@@ -154,11 +154,7 @@ const BigText = styled.div`
     border-bottom: ${(props) =>
         props.underline && `3px solid ${props.theme.primaryColor}`};
 `;
-const ImageDiv = styled.div.attrs((props) => ({
-    style: {
-        clipPath: `circle(${props.clip} at center)`,
-    },
-}))`
+const ImageDiv = styled.div`
     height: 80%;
     width: 330px;
     background-image: url(${(props) => backgrounds[props.imageIndex]});
@@ -166,7 +162,14 @@ const ImageDiv = styled.div.attrs((props) => ({
     background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${(props) => props.theme.contrastBg};
+    clip-path: ${props => `circle(${props.clip} at center)`};
 `;
+// .attrs((props) => ({
+//     style: {
+//         clipPath: `circle(${props.clip} at center)`,
+//     },
+// }))
+
 
 function App() {
     const [theme, setTheme] = useState('light');
@@ -255,7 +258,7 @@ function App() {
                     </IconContainer>
                     <IconContainer iconsview={iconsView} delay='0.3s'>
                         <a
-                            href='https://github.com/borrowedlens'
+                            href='https://github.com/b'
                             style={{ cursor: 'default' }}>
                             <BrandIcon icon={faGithubSquare} />
                         </a>

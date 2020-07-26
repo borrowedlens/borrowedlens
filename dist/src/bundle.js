@@ -38983,11 +38983,7 @@ const BigText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
     font-weight: 700;
     border-bottom: ${props => props.underline && `3px solid ${props.theme.primaryColor}`};
 `;
-const ImageDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.attrs(props => ({
-  style: {
-    clipPath: `circle(${props.clip} at center)`
-  }
-}))`
+const ImageDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
     height: 80%;
     width: 330px;
     background-image: url(${props => _images__WEBPACK_IMPORTED_MODULE_8__["default"][props.imageIndex]});
@@ -38995,7 +38991,12 @@ const ImageDiv = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.a
     background-position: center;
     transition: all 0.25s linear;
     border: 5px solid ${props => props.theme.contrastBg};
-`;
+    clip-path: ${props => `circle(${props.clip} at center)`};
+`; // .attrs((props) => ({
+//     style: {
+//         clipPath: `circle(${props.clip} at center)`,
+//     },
+// }))
 
 function App() {
   const [theme, setTheme] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('light');
@@ -39093,7 +39094,7 @@ function App() {
     iconsview: iconsView,
     delay: "0.3s"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/borrowedlens",
+    href: "https://github.com/b",
     style: {
       cursor: 'default'
     }
